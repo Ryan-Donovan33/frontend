@@ -1,4 +1,7 @@
 # frontend
+
+Gigapet App
+
 Proposal
 
 - What problem does your app solve?
