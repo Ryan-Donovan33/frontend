@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { withFormik, Form, Field } from 'formik';
 
-function RegistrationPage3() {
-	return <div />;
-}
-
-export default RegistrationPage3;
+import * as yup from 'yup';
+import Axios from 'axios';

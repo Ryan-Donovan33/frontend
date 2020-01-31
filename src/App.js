@@ -1,11 +1,12 @@
 import React from 'react';
-import RegForm from './components/RegForm/RegForm';
 import './App.css';
+
+import RouterView from './router';
 
 function App() {
 	return (
 		<div className="App">
-			<RegForm />
+			<RouterView />
 		</div>
 	);
 }
