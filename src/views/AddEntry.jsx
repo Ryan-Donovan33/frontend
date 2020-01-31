@@ -11,14 +11,17 @@ function AddEntry(props) {
       <div className="add-entry-content container">
       <TitleBar {...props} title="Add Entry" />
 
-        <Card>
+        <Card style={{height: 'calc(100vh - 200px)', paddingTop: '50px'}}>
         <form>
             <FormInput placeholder="Food Name" type="text"/>
             <FormSelect value="" placeholder="Category">
             <FormSelectOption value="" disabled hidden>Category</FormSelectOption>
             </FormSelect>
             <PrimaryButton>Add Entry</PrimaryButton>
-            <SecondaryButton>Cancel</SecondaryButton>
+            <SecondaryButton onClick={(e)=>{
+              e.preventDefault();
+              props.history.goBack()
+            }}>Cancel</SecondaryButton>
         </form>
             
         </Card>

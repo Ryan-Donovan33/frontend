@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const primaryColor = "#4864e6"
+const secondaryColor = "#4BD6F2"
+
+
 export const Card = styled.div`
   width: 100%;
   background: white;
@@ -13,7 +17,7 @@ export const Card = styled.div`
 export const FormInput = styled.input`
   width: 100%;
   height: 50px;
-  border: 2px solid #4864e6;
+  border: 2px solid ${primaryColor};
   border-radius: 15px;
   padding: 0 5px;
   box-sizing: border-box;
@@ -21,7 +25,7 @@ export const FormInput = styled.input`
 export const FormSelect = styled.select`
   width: 100%;
   height: 50px;
-  border: 2px solid #4864e6;
+  border: 2px solid ${primaryColor};
   border-radius: 15px;
   padding: 0 5px;
   margin: 10px 0;
@@ -29,7 +33,7 @@ export const FormSelect = styled.select`
 export const FormSelectOption = styled.option`
   width: 100%;
   height: 50px;
-  border: 2px solid #4864e6;
+  border: 2px solid ${primaryColor};
   border-radius: 15px;
   padding: 0 5px;
   margin: 10px 0;
@@ -43,17 +47,17 @@ export const PrimaryButton = styled.button`
   padding: 0 5px;
   cursor: pointer;
   color: white;
-  background: #4864e6;
+  background: ${primaryColor};
   margin: 10px 0;
   font-weight: bold;
 `;
 export const SecondaryButton = styled.button`
   width: 100%;
   height: 50px;
-  border: 2px solid #4864e6;
+  border: 2px solid ${primaryColor};
   border-radius: 15px;
   padding: 0 5px;
   box-sizing: border-box;
-  color: #4864e6;
+  color: ${primaryColor};
   font-weight: bold;
 `;
