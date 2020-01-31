@@ -2,7 +2,7 @@ import { bindActionCreators } from "redux";
 
 const initialState = {
   gigaPet: {
-    nickname: "Mr Hat Birb",
+    nickname: "MrHatBirb",
     health: 100
   }
 };

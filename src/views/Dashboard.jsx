@@ -1,9 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import Gigapet from '../components/dashboard/Gigapet';
 
 
-const Dashboard = (props)=>{
+const Dashboard = ()=>{
     return (
         <div className="dashboard">
             <Gigapet/>
@@ -13,9 +12,5 @@ const Dashboard = (props)=>{
 
 
 
-export default connect(state=>{
-    return {
-
-    }
-})(Dashboard)
+export default Dashboard
 
