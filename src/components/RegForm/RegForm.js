@@ -26,6 +26,8 @@ const Register = ({ errors, touched, values, status }) => {
 
 				<Field type="text" name="confirm" placeholder="Confirm Password" value={values.confirm} />
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
+
+				<button type="submit"> Sumbit</button>
 			</Form>
 		</div>
 	);
