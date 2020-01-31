@@ -57,13 +57,13 @@ const barGrowth = keyframes`
   }
 `;
 
-const HealthCard = ({ health }) => {
+const HealthCard = (props) => {
 
   const InnerBar = styled.div`
     height: 20px;
     background: #4864e6;
     border-radius: 5px;
-    max-width: ${health >= 100 ? 100 : health}%;
+    max-width: ${props.health >= 100 ? 100 : props.health}%;
     transition: 1s;
     animation: 2s ${barGrowth} ease-out;
   `;
@@ -76,7 +76,7 @@ const HealthCard = ({ health }) => {
       </BarOutside>
       <Buttons>
         <EntryButton>Add Entry</EntryButton>
-        <HistoryButton>View History</HistoryButton>
+        <HistoryButton onClick={()=>{props.history.push('/history')}}>View History</HistoryButton>
       </Buttons>
     </Card>
   );
