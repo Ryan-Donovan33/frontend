@@ -1,16 +1,7 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
 import { connect } from "react-redux";
-
-const Card = styled.div`
-  width: 100%;
-  background: white;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  background: white;
-  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-`;
+import {Card} from '../GeneralStyling'
 
 const Title = styled.div`
   font-size: 16px;
