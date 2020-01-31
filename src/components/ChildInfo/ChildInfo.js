@@ -20,6 +20,21 @@ const ChildInfo = ({ errors, touched, values, status }) => {
 			<Form>
 				<Field type="text" name="name" placeholder="Name" value={values.name} />
 				{touched.name && errors.name && <p>{errors.name}</p>}
+
+				<label>
+					<img />
+					<Field type="checkbox" name="male" placeholder="Male" value={values.male} />
+				</label>
+
+				<label>
+					<img />
+					<Field type="checkbox" name="non-binary" placeholder="non" value={values.non - binary} />
+				</label>
+
+				<label>
+					<img />
+					<Field type="checkbox" name="female" placeholder="Female" value={values.female} />
+				</label>
 			</Form>
 		</div>
 	);
