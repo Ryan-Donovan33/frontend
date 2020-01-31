@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
+import * as Yup from 'yup';
+import Axios from 'axios';
 
 const Register = ({ errors, touched, values, status }) => {
 	const [ user, setUser ] = useState([]);
@@ -42,6 +44,27 @@ const RegForm = withFormik({
 			password: '',
 			confirm: ''
 		};
+	},
+
+	//validation required - making sure all users fill out each field.
+	validationSchema: Yup.object().shape({
+		name: Yup.sting().required('Please fill in your name!'),
+		email: Yup.sting().required('Please provide your email!'),
+		password: Yup.sting().required('Password Required!'),
+		confirm: Yup.sting().required('Confirm Password!')
+	}),
+
+	handleSumbit(values, { setStatus, resetForm }) {
+		console.log('submitting form:', values);
+
+		Axios.post('', values)
+			.then((res) => {
+				console.log(res, 'successful');
+				setStatus(res);
+			})
+			.catch((err) => {
+				console.log('Error', err);
+			});
 	}
 })(Register);
 
