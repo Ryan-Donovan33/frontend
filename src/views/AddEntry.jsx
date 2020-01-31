@@ -16,6 +16,9 @@ function AddEntry(props) {
             <FormInput placeholder="Food Name" type="text"/>
             <FormSelect value="" placeholder="Category">
             <FormSelectOption value="" disabled hidden>Category</FormSelectOption>
+            <FormSelectOption value="1" >Category 1</FormSelectOption>
+            <FormSelectOption value="1" >Category 2</FormSelectOption>
+            <FormSelectOption value="1" >Category 3</FormSelectOption>
             </FormSelect>
             <PrimaryButton>Add Entry</PrimaryButton>
             <SecondaryButton onClick={(e)=>{

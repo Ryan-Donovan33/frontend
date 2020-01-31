@@ -31,12 +31,7 @@ export const FormSelect = styled.select`
   margin: 10px 0;
 `;
 export const FormSelectOption = styled.option`
-  width: 100%;
-  height: 50px;
-  border: 2px solid ${primaryColor};
-  border-radius: 15px;
-  padding: 0 5px;
-  margin: 10px 0;
+
 `;
 
 export const PrimaryButton = styled.button`
