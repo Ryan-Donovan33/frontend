@@ -21,6 +21,8 @@ export const FormInput = styled.input`
   border-radius: 15px;
   padding: 0 5px;
   box-sizing: border-box;
+  font-size: 16px;
+
 `;
 export const FormSelect = styled.select`
   width: 100%;
@@ -29,6 +31,8 @@ export const FormSelect = styled.select`
   border-radius: 15px;
   padding: 0 5px;
   margin: 10px 0;
+  background: none;
+  font-size: 16px;
 `;
 export const FormSelectOption = styled.option`
 
@@ -55,4 +59,5 @@ export const SecondaryButton = styled.button`
   box-sizing: border-box;
   color: ${primaryColor};
   font-weight: bold;
+  background: none;
 `;
