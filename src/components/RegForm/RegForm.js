@@ -48,10 +48,10 @@ const RegForm = withFormik({
 
 	//validation required - making sure all users fill out each field.
 	validationSchema: Yup.object().shape({
-		name: Yup.sting().required('Please fill in your name!'),
-		email: Yup.sting().required('Please provide your email!'),
-		password: Yup.sting().required('Password Required!'),
-		confirm: Yup.sting().required('Confirm Password!')
+		name: Yup.string().required('Please fill in your name!'),
+		email: Yup.string().required('Please provide your email!'),
+		password: Yup.string().required('Password Required!'),
+		confirm: Yup.string().required('Confirm Password!')
 	}),
 
 	handleSumbit(values, { setStatus, resetForm }) {
