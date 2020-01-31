@@ -13,7 +13,7 @@ const ListCard = styled.div`
   box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin: 10px 0;
-  height: 100vh;
+  height: calc(100vh - 300px);
   overflow-y: scroll;
   scroll-behavior: smooth;
 
