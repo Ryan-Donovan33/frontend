@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
     height: 80px;
-    background: #4864E6;
+    // background: #4864E6;
 `
 
 const FlexContainer = styled.div`
