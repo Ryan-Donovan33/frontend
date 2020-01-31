@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 
-import RouterView from './router'
+import RouterView from './router';
 
 function App() {
-  return (
-    <div className="App">
-     <RouterView/>
-    </div>
-  );
+	return (
+		<div className="App">
+			<RouterView />
+		</div>
+	);
 }
 
 export default App;
