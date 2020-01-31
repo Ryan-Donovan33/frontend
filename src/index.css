@@ -5,6 +5,9 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	/* background: linear-gradient(180deg, #4864E6,  #4BD6F2 ); */
+	background-color: #4864E6;
+	height: 100vh;
 }
 
 code {
