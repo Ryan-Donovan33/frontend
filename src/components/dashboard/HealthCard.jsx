@@ -1,16 +1,7 @@
 import React from "react";
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { connect } from "react-redux";
-
-const Card = styled.div`
-  width: 100%;
-  background: white;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  background: white;
-  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-`;
+import { Card } from "../GeneralStyling";
 
 const Title = styled.div`
   font-size: 16px;
@@ -37,6 +28,7 @@ const EntryButton = styled.button`
   color: white;
   border: none;
   font-weight: bold;
+  cursor: pointer;
 `;
 const HistoryButton = styled.button`
   width: 47%;
@@ -46,6 +38,7 @@ const HistoryButton = styled.button`
   background: none;
   color: #4864e6;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 const barGrowth = keyframes`
@@ -57,8 +50,7 @@ const barGrowth = keyframes`
   }
 `;
 
-const HealthCard = (props) => {
-
+const HealthCard = props => {
   const InnerBar = styled.div`
     height: 20px;
     background: #4864e6;
@@ -74,15 +66,27 @@ const HealthCard = (props) => {
       <BarOutside>
         <InnerBar />
       </BarOutside>
-      {props.buttons ? 
-      <Buttons>
-      <EntryButton>Add Entry</EntryButton>
-      <HistoryButton onClick={()=>{
-        console.log(props)
-        props.history.push('/history')
-        }}>View History</HistoryButton>
-    </Buttons> : '' }
-      
+      {props.buttons ? (
+        <Buttons>
+          <EntryButton
+            onClick={() => {
+              console.log(props);
+              props.history.push("/add");
+            }}
+          >
+            Add Entry
+          </EntryButton>
+          <HistoryButton
+            onClick={() => {
+              props.history.push("/history");
+            }}
+          >
+            View History
+          </HistoryButton>
+        </Buttons>
+      ) : (
+        ""
+      )}
     </Card>
   );
 };

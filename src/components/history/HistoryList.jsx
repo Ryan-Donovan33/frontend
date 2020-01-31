@@ -34,13 +34,13 @@ const ListCard = styled.div`
       }
 `
 
-function HistoryList(){
+function HistoryList(props){
     return (
         <div className="history-list">
             <ListCard>
-            <MealSection title="Breakfast" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
-            <MealSection title="Lunch" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
-            <MealSection title="Dinner" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
+            <MealSection {...props} title="Breakfast" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
+            <MealSection {...props} title="Lunch" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
+            <MealSection {...props} title="Dinner" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
 
             </ListCard>
         </div>
