@@ -48,7 +48,7 @@ const GigaPetFloor = styled.div`
 
 const Gigapet = (props) => {
   return (
-    <Background className="container">
+    <Background>
       <Title>{props.nickname}</Title>
       <GigaPetBox>
         <GigaPetAvatar src="assets/gigapet-avatar.svg" />

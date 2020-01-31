@@ -1,9 +1,7 @@
-import { bindActionCreators } from "redux";
-
 const initialState = {
   gigaPet: {
     nickname: "MrHatBirb",
-    health: 100
+    health: 150
   }
 };
 
