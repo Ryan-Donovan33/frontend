@@ -74,10 +74,15 @@ const HealthCard = (props) => {
       <BarOutside>
         <InnerBar />
       </BarOutside>
+      {props.buttons ? 
       <Buttons>
-        <EntryButton>Add Entry</EntryButton>
-        <HistoryButton onClick={()=>{props.history.push('/history')}}>View History</HistoryButton>
-      </Buttons>
+      <EntryButton>Add Entry</EntryButton>
+      <HistoryButton onClick={()=>{
+        console.log(props)
+        props.history.push('/history')
+        }}>View History</HistoryButton>
+    </Buttons> : '' }
+      
     </Card>
   );
 };

@@ -10,7 +10,7 @@ const Dashboard = (props)=>{
             <Navbar/>
             <div className="container">
             <Gigapet/>
-            <HealthCard {...props}/>
+            <HealthCard buttons {...props}/>
 
             </div>
         </div>
