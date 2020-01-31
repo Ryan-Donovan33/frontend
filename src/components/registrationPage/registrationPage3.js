@@ -1,50 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Field, withFormik } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+import React from 'react';
 
-const Register = ({ errors, touched, values, status }) => {
-	const [ user, setUser ] = useState([]);
+function RegistrationPage3() {
+	return <div />;
+}
 
-	useEffect(
-		() => {
-			status && setUser((person) => [ ...person, status ]);
-		},
-		[ status ]
-	);
-	return (
-		<div>
-			<h3>Let's get started!</h3>
-			<h4>First, let's get your information</h4>
-			<Form>
-				<Field type="text" name="name" placeholder="Name" value={values.name} />
-				{touched.name && errors.name && <p>{errors.name}</p>}
-
-				<Field type="email" name="email" placeholder="Email" value={values.email} />
-				{touched.email && errors.email && <p>{errors.email}</p>}
-
-				<Field type="text" name="password" placeholder="Password" value={values.password} />
-				{touched.password && errors.password && <p>{errors.password}</p>}
-
-				<Field type="text" name="confirm" placeholder="Confirm Password" value={values.confirm} />
-				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
-
-				<button type="submit"> Sumbit</button>
-			</Form>
-		</div>
-	);
-};
-
-const RegForm = withFormik({
-	mapPropsToValues({ users }) {
-		//passing props to each field
-		return {
-			name: users || '',
-			email: '',
-			password: '',
-			confirm: ''
-		};
-	}
-})(Register);
-
-export default RegForm;
+export default RegistrationPage3;
