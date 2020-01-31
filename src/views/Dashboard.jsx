@@ -4,13 +4,13 @@ import HealthCard from '../components/dashboard/HealthCard';
 import Navbar from '../components/layout/Navbar';
 
 
-const Dashboard = ()=>{
+const Dashboard = (props)=>{
     return (
         <div className="dashboard">
             <Navbar/>
             <div className="container">
             <Gigapet/>
-            <HealthCard/>
+            <HealthCard {...props}/>
 
             </div>
         </div>
