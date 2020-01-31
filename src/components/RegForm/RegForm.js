@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
 
-const Form = ({ errors, touched, values, status }) => {
+const Register = ({ errors, touched, values, status }) => {
 	const [ user, setUser ] = useState([]);
 
 	useEffect(
@@ -41,6 +41,6 @@ const RegForm = withFormik({
 			confirm: ''
 		};
 	}
-})(Form);
+})(Register);
 
 export default RegForm;
