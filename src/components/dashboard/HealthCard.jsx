@@ -93,6 +93,6 @@ const HealthCard = props => {
 
 export default connect(state => {
   return {
-    health: state.gigaPet.health
+    health: state.health
   };
 })(HealthCard);

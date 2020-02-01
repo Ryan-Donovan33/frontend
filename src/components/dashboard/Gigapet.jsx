@@ -60,6 +60,6 @@ const Gigapet = (props) => {
 
 export default connect(state => {
   return {
-    nickname: state.gigaPet.nickname
+    nickname: state.nickname
   };
 })(Gigapet);

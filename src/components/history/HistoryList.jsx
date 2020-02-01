@@ -38,9 +38,9 @@ function HistoryList(props){
     return (
         <div className="history-list">
             <ListCard>
-            <MealSection {...props} title="Breakfast" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
-            <MealSection {...props} title="Lunch" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
-            <MealSection {...props} title="Dinner" meals={[{title: 'Oatmeal'}, {title: 'Cereal'}]}/>
+            <MealSection {...props} title="Breakfast" meals={props.foodEaten}/>
+            <MealSection {...props} title="Lunch" meals={props.foodEaten}/>
+            <MealSection {...props} title="Dinner" meals={props.foodEaten}/>
 
             </ListCard>
         </div>
@@ -50,6 +50,6 @@ function HistoryList(props){
 
 export default connect(state=>{
     return{
-
+        foodEaten: state.foodEaten
     }
 })(HistoryList);
