@@ -53,16 +53,19 @@ const ChildCard = ({ errors, touched, values, status }) => {
 				<label>
 					<img src="assets/Icon ionic-md-male.svg" alt="Male Icon" />
 					<Field type="checkbox" name="male" placeholder="Male" value={values.male} />
+					Male
 				</label>
 
 				<label>
 					<img src="assets/Icon ionic-md-male.svg" alt="Non-Binary Icon" />
 					<Field type="checkbox" name="tbd" value={values.tbd} />
+					Non-Binary
 				</label>
 
 				<label>
 					<img src="assets/Icon ionic-md-male.svg" alt="Female Icon" />
 					<Field type="checkbox" name="female" placeholder="Female" value={values.female} />
+					Female
 				</label>
 
 				<Field type="date" name="date" placeholder="Date of Birth (mm/dd/yyyy)" value={values.date} />
