@@ -51,17 +51,17 @@ const ChildCard = ({ errors, touched, values, status }) => {
 				{touched.name && errors.name && <p>{errors.name}</p>}
 
 				<label>
-					<img src="public/assets/Icon ionic-md-male.svg" alt="Male Icon" />
+					<img src="assets/Icon ionic-md-male.svg" alt="Male Icon" />
 					<Field type="checkbox" name="male" placeholder="Male" value={values.male} />
 				</label>
 
 				<label>
-					<img src="public/assets/Icon ionic-md-male.svg" alt="Non-Binary Icon" />
+					<img src="assets/Icon ionic-md-male.svg" alt="Non-Binary Icon" />
 					<Field type="checkbox" name="tbd" value={values.tbd} />
 				</label>
 
 				<label>
-					<img src="public/assets/Icon ionic-md-male.svg" alt="Female Icon" />
+					<img src="assets/Icon ionic-md-male.svg" alt="Female Icon" />
 					<Field type="checkbox" name="female" placeholder="Female" value={values.female} />
 				</label>
 
@@ -90,20 +90,20 @@ const ChildInfo = withFormik({
 		tbd: Yup.bool(),
 		male: Yup.bool(),
 		female: Yup.bool()
-	}),
-	handleSubmit(values, { setStatus, resetForm }) {
-		console.log('submitting form:', values);
+	})
+	// handleSubmit(values, { setStatus, resetForm }) {
+	// 	console.log('submitting form:', values);
 
-		Axios.post('', values)
-			.then((res) => {
-				console.log('Success:', res);
-				setStatus(res.data);
-				resetForm();
-			})
-			.catch((err) => {
-				console.log('Error:', err.response);
-			});
-	}
+	// 	Axios.post('', values)
+	// 		.then((res) => {
+	// 			console.log('Success:', res);
+	// 			setStatus(res.data);
+	// 			resetForm();
+	// 		})
+	// 		.catch((err) => {
+	// 			console.log('Error:', err.response);
+	// 		});
+	// }
 })(ChildCard);
 
 export default ChildInfo;
