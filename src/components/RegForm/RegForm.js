@@ -4,11 +4,26 @@ import * as Yup from 'yup';
 import Axios from 'axios';
 import styled from 'styled-components';
 
-const Bkground = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: #4864e6;
+const Card = styled.div`
+	width: 100%;
+	background: white;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	background: white;
+	box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+`;
+const PrimaryButton = styled.button`
+	width: 100%;
+	height: 50px;
+	border: none;
+	border-radius: 15px;
+	padding: 0 5px;
+	cursor: pointer;
+	color: white;
+	background: #4864e6;
+	margin: 10px 0;
+	font-weight: bold;
 `;
 
 const Register = ({ errors, touched, values, status }) => {
@@ -21,7 +36,7 @@ const Register = ({ errors, touched, values, status }) => {
 		[ status ]
 	);
 	return (
-		<Bkground>
+		<Card>
 			<h3>Let's get started!</h3>
 			<h4>First, let's get your information</h4>
 			<Form>
@@ -37,9 +52,9 @@ const Register = ({ errors, touched, values, status }) => {
 				<Field type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
 
-				<button type="submit"> Sumbit</button>
+				<PrimaryButton type="submit"> Next</PrimaryButton>
 			</Form>
-		</Bkground>
+		</Card>
 	);
 };
 

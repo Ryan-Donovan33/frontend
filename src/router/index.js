@@ -7,6 +7,7 @@ import RouteGuard from './routerGuard';
 import Dashboard from '../views/Dashboard';
 import History from '../views/History';
 import AddEntry from '../views/AddEntry';
+import RegPage from '../views/RegPage';
 
 export default function RouterView() {
 	return (
@@ -14,6 +15,7 @@ export default function RouterView() {
 			<Route exact path="/" component={Dashboard} />
 			<Route exact path="/history" component={History} />
 			<Route exact path="/add" component={AddEntry} />
+			<Route path="/registration1" component={RegPage} />
 		</div>
 	);
 }

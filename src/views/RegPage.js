@@ -1,10 +1,14 @@
 import React from 'react';
+import Navbar from '../components/layout/Navbar';
 import RegForm from '../components/RegForm/RegForm';
 
 function RegPage() {
 	return (
-		<div>
-			<RegForm />
+		<div className="RegPage">
+			<Navbar />
+			<div className="container">
+				<RegForm />
+			</div>
 		</div>
 	);
 }
