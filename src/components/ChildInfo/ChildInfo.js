@@ -51,17 +51,17 @@ const ChildCard = ({ errors, touched, values, status }) => {
 				{touched.name && errors.name && <p>{errors.name}</p>}
 
 				<label>
-					<img />
+					<img src="public/assets/Icon ionic-md-male.svg" alt="Male Icon" />
 					<Field type="checkbox" name="male" placeholder="Male" value={values.male} />
 				</label>
 
 				<label>
-					<img />
+					<img src="public/assets/Icon ionic-md-male.svg" alt="Non-Binary Icon" />
 					<Field type="checkbox" name="tbd" value={values.tbd} />
 				</label>
 
 				<label>
-					<img />
+					<img src="public/assets/Icon ionic-md-male.svg" alt="Female Icon" />
 					<Field type="checkbox" name="female" placeholder="Female" value={values.female} />
 				</label>
 
