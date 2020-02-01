@@ -1,7 +1,7 @@
 const initialState = {
   gigaPet: {
     nickname: "MrHatBirb",
-    health: 150
+    health: 75
   }
 };
 
