@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 import Axios from 'axios';
+import styled from 'styled-components';
+
+const Bkground = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #4864e6;
+`;
 
 const Register = ({ errors, touched, values, status }) => {
 	const [ user, setUser ] = useState([]);
@@ -13,7 +21,7 @@ const Register = ({ errors, touched, values, status }) => {
 		[ status ]
 	);
 	return (
-		<div>
+		<Bkground>
 			<h3>Let's get started!</h3>
 			<h4>First, let's get your information</h4>
 			<Form>
@@ -31,7 +39,7 @@ const Register = ({ errors, touched, values, status }) => {
 
 				<button type="submit"> Sumbit</button>
 			</Form>
-		</div>
+		</Bkground>
 	);
 };
 
