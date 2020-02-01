@@ -8,6 +8,7 @@ import Dashboard from '../views/Dashboard';
 import History from '../views/History';
 import AddEntry from '../views/AddEntry';
 import RegPage from '../views/RegPage';
+// import ChildPage from '../views/ChildPage';
 
 export default function RouterView() {
 	return (
@@ -16,6 +17,7 @@ export default function RouterView() {
 			<Route exact path="/history" component={History} />
 			<Route exact path="/add" component={AddEntry} />
 			<Route path="/registration1" component={RegPage} />
+			{/* <Route path="/childinfo" component={ChildPage} /> */}
 		</div>
 	);
 }

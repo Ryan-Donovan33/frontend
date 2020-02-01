@@ -13,18 +13,20 @@ const Card = styled.div`
 	box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 `;
-const PrimaryButton = styled.button`
+const SecondaryButton = styled.button`
 	width: 100%;
 	height: 50px;
-	border: none;
+	border: 2px solid #4864e6;
 	border-radius: 15px;
 	padding: 0 5px;
-	cursor: pointer;
-	color: white;
-	background: #4864e6;
-	margin: 10px 0;
+	box-sizing: border-box;
+	color: #4864e6;
 	font-weight: bold;
+	font-size: 20px;
+	background: none;
 `;
+
+const Header = styled.div`color: #4864e6;`;
 
 const Register = ({ errors, touched, values, status }) => {
 	const [ user, setUser ] = useState([]);
@@ -37,8 +39,10 @@ const Register = ({ errors, touched, values, status }) => {
 	);
 	return (
 		<Card>
-			<h3>Let's get started!</h3>
-			<h4>First, let's get your information</h4>
+			<Header>
+				<h3>Let's get started!</h3>
+				<h4>First, let's get your information</h4>
+			</Header>
 			<Form>
 				<Field type="text" name="name" placeholder="Name" value={values.name} />
 				{touched.name && errors.name && <p>{errors.name}</p>}
@@ -52,7 +56,7 @@ const Register = ({ errors, touched, values, status }) => {
 				<Field type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
 
-				<PrimaryButton type="submit"> Next</PrimaryButton>
+				<SecondaryButton type="submit"> Next</SecondaryButton>
 			</Form>
 		</Card>
 	);
