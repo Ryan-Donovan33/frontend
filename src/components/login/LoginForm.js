@@ -22,7 +22,7 @@ const LoginForm = ( { errors, touched, status }) => {
       )
     }
     
-    export default withFormik({
+export default withFormik({
       mapPropsToValues: (values) => {
         return {
           email: values.email || '',

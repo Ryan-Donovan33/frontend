@@ -31,10 +31,10 @@ const Register = ({ errors, touched, values, status }) => {
 				<Field type="email" name="email" placeholder="Email" value={values.email} />
 				{touched.email && errors.email && <p>{errors.email}</p>}
 
-				<Field type="text" name="password" placeholder="Password" value={values.password} />
+				<Field type="password" name="password" placeholder="Password" value={values.password} />
 				{touched.password && errors.password && <p>{errors.password}</p>}
 
-				<Field type="text" name="confirm" placeholder="Confirm Password" value={values.confirm} />
+				<Field type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
 
 				<button type="submit"> Sumbit</button>
