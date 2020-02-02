@@ -46,7 +46,7 @@ const Gigapet = (props) => {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    animation: ${props.health > 30 ? 'hopwalk 30s infinite ease-out' : 'none'};
+    animation: hopwalk 10s steps(3, start) infinite;
   `;
   return (
     <Background>
