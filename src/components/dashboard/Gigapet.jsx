@@ -32,7 +32,7 @@ const GigaPetAvatar = styled.img`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  animation: hopwalk 20s infinite;
+  animation: hopwalk 30s infinite ease-out;
 `;
 
 const GigaPetFloor = styled.div`
