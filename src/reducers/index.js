@@ -12,6 +12,7 @@ const petReducer = (state = initialState, action) => {
       console.log(state)
       return {
        ...state,
+       health: state.health + 30,
        foodEaten: [action.payload, ...state.foodEaten]
       }
     default:

@@ -26,33 +26,33 @@ const GigaPetBox = styled.div`
   height: 100%;
 `;
 
-const GigaPetAvatar = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  animation: hopwalk 20s infinite;
-`;
 
 const GigaPetFloor = styled.div`
-  position: absolute;
-  height: 100px;
-  width: 100%;
-  background: #4864e6;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50px;
-  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);
+position: absolute;
+height: 100px;
+width: 100%;
+background: #4864e6;
+top: 70%;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 50px;
+box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);
 `;
 
 const Gigapet = (props) => {
+  const GigaPetAvatar = styled.img`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: ${props.health > 30 ? 'hopwalk 30s infinite ease-out' : 'none'};
+  `;
   return (
     <Background>
       <Title>{props.nickname}</Title>
       <GigaPetBox>
-        <GigaPetAvatar src="assets/gigapet-avatar.svg" />
+        <GigaPetAvatar src={props.health <= 30 ? 'assets/gigapet-avatar-weak.svg' : 'assets/gigapet-avatar.svg'} />
         <GigaPetFloor />
       </GigaPetBox>
     </Background>
@@ -61,6 +61,7 @@ const Gigapet = (props) => {
 
 export default connect(state => {
   return {
-    nickname: state.nickname
+    nickname: state.nickname,
+    health: state.health
   };
 })(Gigapet);
