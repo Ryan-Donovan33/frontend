@@ -28,6 +28,16 @@ const SecondaryButton = styled.button`
 
 const Header = styled.div`color: #4864e6;`;
 
+const FormInput = styled.input`
+	width: 100%;
+	height: 50px;
+	border: 2px solid #4864e6;
+	border-radius: 15px;
+	padding: 0 5px;
+	box-sizing: border-box;
+	font-size: 16px;
+`;
+
 const Register = ({ errors, touched, values, status }) => {
 	const [ user, setUser ] = useState([]);
 
@@ -44,16 +54,16 @@ const Register = ({ errors, touched, values, status }) => {
 				<h4>First, let's get your information</h4>
 			</Header>
 			<Form>
-				<Field type="text" name="name" placeholder="Name" value={values.name} />
+				<FormInput type="text" name="name" placeholder="Name" value={values.name} />
 				{touched.name && errors.name && <p>{errors.name}</p>}
 
-				<Field type="email" name="email" placeholder="Email" value={values.email} />
+				<FormInput type="email" name="email" placeholder="Email" value={values.email} />
 				{touched.email && errors.email && <p>{errors.email}</p>}
 
-				<Field type="password" name="password" placeholder="Password" value={values.password} />
+				<FormInput type="password" name="password" placeholder="Password" value={values.password} />
 				{touched.password && errors.password && <p>{errors.password}</p>}
 
-				<Field type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
+				<FormInput type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
 
 				<SecondaryButton type="submit"> Next</SecondaryButton>
@@ -79,20 +89,22 @@ const RegForm = withFormik({
 		email: Yup.string().required('Please provide your email!'),
 		password: Yup.string().required('Password Required!'),
 		confirm: Yup.string().required('Confirm Password!')
-	}),
+	})
 
-	handleSumbit(values, { setStatus, resetForm }) {
-		console.log('submitting form:', values);
+	// Don't think I need axios for this but keeping just incase I will need it once we involve the backend
 
-		Axios.post('', values)
-			.then((res) => {
-				console.log(res, 'successful');
-				setStatus(res);
-			})
-			.catch((err) => {
-				console.log('Error', err);
-			});
-	}
+	// handleSumbit(values, { setStatus, resetForm }) {
+	// 	console.log('submitting form:', values);
+
+	// 	Axios.post('', values)
+	// 		.then((res) => {
+	// 			console.log(res, 'successful');
+	// 			setStatus(res);
+	// 		})
+	// 		.catch((err) => {
+	// 			console.log('Error', err);
+	// 		});
+	// }
 })(Register);
 
 export default RegForm;
