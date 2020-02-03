@@ -30,6 +30,16 @@ const SecondaryButton = styled.button`
 
 const Header = styled.div`color: #4864e6;`;
 
+const FormInput = styled.input`
+	width: 100%;
+	height: 50px;
+	border: 2px solid #4864e6;
+	border-radius: 15px;
+	padding: 0 5px;
+	box-sizing: border-box;
+	font-size: 16px;
+`;
+
 const ChildCard = ({ errors, touched, values, status }) => {
 	const [ child, setChild ] = useState([]);
 
@@ -47,7 +57,7 @@ const ChildCard = ({ errors, touched, values, status }) => {
 				<h4>Let's get your child's information below!</h4>
 			</Header>
 			<Form>
-				<Field type="text" name="name" placeholder="Name" value={values.name} />
+				<FormInput type="text" name="name" placeholder="Name" value={values.name} />
 				{touched.name && errors.name && <p>{errors.name}</p>}
 
 				<label>
@@ -68,7 +78,7 @@ const ChildCard = ({ errors, touched, values, status }) => {
 					Female
 				</label>
 
-				<Field type="date" name="date" placeholder="Date of Birth (mm/dd/yyyy)" value={values.date} />
+				<FormInput type="date" name="date" placeholder="Date of Birth (mm/dd/yyyy)" value={values.date} />
 
 				<SecondaryButton>Wrap Up!</SecondaryButton>
 			</Form>
