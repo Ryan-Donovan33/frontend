@@ -10,9 +10,10 @@
   
 }
 
-.RegPage{
+.RegPage, .login-page{
   text-align: center;
   padding-top: 100px;
   background: linear-gradient(180deg, #4864E6, #4BD6F2);
   height: 100vh;
+  color: white;
 }

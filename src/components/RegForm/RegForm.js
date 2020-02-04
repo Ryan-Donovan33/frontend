@@ -2,21 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 import Axios from 'axios';
-import {OnboardingButton, primaryColor} from '../GeneralStyling';
+import {OnboardingButton, InputStyle} from '../GeneralStyling';
 
 
-const InputStyle = {
-  width: '100%',
-  height: '50px',
-  border: 'none',
-  borderRadius: '10px',
-  padding: '0 5px',
-  boxSizing: 'border-box',
-  fontSize: '16px',
-  background: 'rgba(255,255,255,0.6)',
-  color: 'white',
-  margin: '10px 0'
-}
+
 
 
 const Register = ({ errors, touched, values, status, ...props }) => {

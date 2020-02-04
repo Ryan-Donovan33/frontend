@@ -5,9 +5,12 @@ import LoginForm from '../components/login/LoginForm';
 
 export default function Login(){
     return (
-        <div className="">
+        <div className="login-page">
+            <div className="container">
             <Header />
             <LoginForm/>
+
+            </div>
     
         </div>
     )
