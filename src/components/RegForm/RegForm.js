@@ -31,7 +31,7 @@ const Header = styled.div`color: #4864e6;`;
 const FormInput = styled.input`
 	width: 100%;
 	height: 50px;
-	border: 2px solid #4864e6;
+	border: 2px solid #4864e6; 
 	border-radius: 15px;
 	padding: 0 5px;
 	box-sizing: border-box;
