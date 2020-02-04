@@ -61,5 +61,16 @@ export const SecondaryButton = styled.button`
   font-weight: bold;
   background: none;
 `;
+export const OnboardingButton = styled.button`
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  padding: 0 5px;
+  box-sizing: border-box;
+  color: ${primaryColor};
+  font-weight: bold;
+  background: white;
+`;
 
 

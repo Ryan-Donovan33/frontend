@@ -1,7 +1,7 @@
 import React, { useState }from 'react'
 import { withFormik, Form, Field } from 'formik'
 
-import * as yup from 'yup'
+import * as Yup from 'yup'
 import Axios from 'axios';
 
 const LoginForm = ( { errors, touched, status }) => {
@@ -22,24 +22,33 @@ const LoginForm = ( { errors, touched, status }) => {
       )
     }
     
-export default withFormik({
-      mapPropsToValues: (values) => {
+    export default withFormik({
+      mapPropsToValues({ users }) {
+        //passing props to each field
         return {
-          email: values.email || '',
-          password: values.password || '',
-        }
+          name: users || '',
+          email: '',
+          password: '',
+          confirm: ''
+        };
       },
-      validationSchema: yup.object().shape({
-        email: yup.string().required('Email is required!'),
-        password: yup.string().required('Password is required!'),
-      handleSubmit: (values, { setState }) => {
-        console.log(values)
-        Axios.post(' ', values)
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((err) => {
-          console.log('Error', err)
-        })
+    
+      //validation required - making sure all users fill out each field.
+      validationSchema: Yup.object().shape({
+        email: Yup.string().required('Please provide your email!'),
+        password: Yup.string().required('Password Required!'),
+      }),
+      handleSumbit(values, { setloginUser }) {
+        console.log('submitting form:', values);
+    
+        Axios.post('', values)
+          .then((res) => {
+            console.log(res, 'successful');
+            setloginUser(res);
+          })
+          .catch((err) => {
+            console.log('Error', err);
+          });
       }
-    })(LoginForm)})
+    
+    })(LoginForm);

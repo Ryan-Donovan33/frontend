@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 import Axios from 'axios';
-import styled from 'styled-components';
-import {PrimaryButton, primaryColor} from '../GeneralStyling';
+import {OnboardingButton, primaryColor} from '../GeneralStyling';
 
 
 const InputStyle = {
@@ -20,7 +19,7 @@ const InputStyle = {
 }
 
 
-const Register = ({ errors, touched, values, status }) => {
+const Register = ({ errors, touched, values, status, ...props }) => {
 	const [ user, setUser ] = useState([]);
 
 	useEffect(
@@ -47,13 +46,13 @@ const Register = ({ errors, touched, values, status }) => {
 
 				<Field style={InputStyle} type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
-				<PrimaryButton>Next</PrimaryButton>
+				<OnboardingButton type="submit">Next</OnboardingButton>
 			</Form>
 		</div>
 	);
 };
 
-const RegForm = withFormik({
+export default withFormik({
 	mapPropsToValues({ users }) {
 		//passing props to each field
 		return {
@@ -69,9 +68,8 @@ const RegForm = withFormik({
 		name: Yup.string().required('Please fill in your name!'),
 		email: Yup.string().required('Please provide your email!'),
 		password: Yup.string().required('Password Required!'),
-		confirm: Yup.string().required('Confirm Password!')
+		confirm: Yup.string().required('Confirm Password!'),
 	}),
-
 	handleSumbit(values, { setStatus, resetForm }) {
 		console.log('submitting form:', values);
 
@@ -84,6 +82,7 @@ const RegForm = withFormik({
 				console.log('Error', err);
 			});
 	}
+
 })(Register);
 
-export default RegForm;
+
