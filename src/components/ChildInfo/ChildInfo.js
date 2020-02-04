@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import styled from 'styled-components';
 import { OnboardingButton, InputStyle } from '../GeneralStyling';
@@ -55,7 +56,9 @@ const ChildCard = ({ errors, touched, values, status }) => {
 
 				<FormInput type="date" name="date" placeholder="Date of Birth (mm/dd/yyyy)" value={values.date} />
 
-				<OnboardingButton>Wrap Up!</OnboardingButton>
+				<Link to="">
+					<OnboardingButton>Wrap Up!</OnboardingButton>
+				</Link>
 			</Form>
 		</div>
 	);
@@ -70,15 +73,15 @@ const ChildInfo = withFormik({
 			female: false,
 			date: ''
 		};
-	},
+	}
 
-	validationSchema: Yup.object().shape({
-		name: Yup.string().required('Please fill out name'),
-		date: Yup.string().required('Please fill out date'),
-		tbd: Yup.bool(),
-		male: Yup.bool(),
-		female: Yup.bool()
-	})
+	// validationSchema: Yup.object().shape({
+	// 	name: Yup.string().required('Please fill out name'),
+	// 	date: Yup.string().required('Please fill out date'),
+	// 	tbd: Yup.bool(),
+	// 	male: Yup.bool(),
+	// 	female: Yup.bool()
+	// })
 	// handleSubmit(values, { setStatus, resetForm }) {
 	// 	console.log('submitting form:', values);
 

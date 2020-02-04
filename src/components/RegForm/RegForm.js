@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import Axios from 'axios';
 import { OnboardingButton, InputStyle } from '../GeneralStyling';
@@ -42,7 +43,9 @@ const Register = ({ errors, touched, values, status, ...props }) => {
 
 				<FormInput type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
-				<OnboardingButton type="submit">Next</OnboardingButton>
+				<Link to="/childinfo">
+					<OnboardingButton type="submit">Next</OnboardingButton>
+				</Link>
 			</Form>
 		</div>
 	);
@@ -57,15 +60,15 @@ export default withFormik({
 			password: '',
 			confirm: ''
 		};
-	},
+	}
 
 	//validation required - making sure all users fill out each field.
-	validationSchema: Yup.object().shape({
-		name: Yup.string().required('Please fill in your name!'),
-		email: Yup.string().required('Please provide your email!'),
-		password: Yup.string().required('Password Required!'),
-		confirm: Yup.string().required('Confirm Password!')
-	})
+	// validationSchema: Yup.object().shape({
+	// 	name: Yup.string().required('Please fill in your name!'),
+	// 	email: Yup.string().required('Please provide your email!'),
+	// 	password: Yup.string().required('Password Required!'),
+	// 	confirm: Yup.string().required('Confirm Password!')
+	// })
 
 	// Don't think I need axios for this but keeping just incase I will need it once we involve the backend
 
