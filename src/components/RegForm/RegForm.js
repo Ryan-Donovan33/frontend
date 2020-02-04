@@ -2,27 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 import Axios from 'axios';
-import {OnboardingButton, InputStyle} from '../GeneralStyling';
+import { OnboardingButton, InputStyle } from '../GeneralStyling';
+import styled from 'styled-components';
 
-
-
-<<<<<<< HEAD
 const FormInput = styled.input`
 	width: 100%;
 	height: 50px;
-	border: 2px solid #4864e6; 
+	border: 2px solid #4864e6;
 	border-radius: 15px;
 	padding: 0 5px;
 	box-sizing: border-box;
 	font-size: 16px;
 `;
 
-const Register = ({ errors, touched, values, status }) => {
-=======
-
-
 const Register = ({ errors, touched, values, status, ...props }) => {
->>>>>>> a43f9edb41d6652aff05ec87528866210362215b
 	const [ user, setUser ] = useState([]);
 
 	useEffect(
@@ -33,12 +26,11 @@ const Register = ({ errors, touched, values, status, ...props }) => {
 	);
 	return (
 		<div className="onboarding-1">
-			<div style={{color: 'white'}}>
+			<div style={{ color: 'white' }}>
 				<h3>Let's get started!</h3>
 				<h4>First, let's get your information</h4>
 			</div>
 			<Form>
-<<<<<<< HEAD
 				<FormInput type="text" name="name" placeholder="Name" value={values.name} />
 				{touched.name && errors.name && <p>{errors.name}</p>}
 
@@ -49,18 +41,6 @@ const Register = ({ errors, touched, values, status, ...props }) => {
 				{touched.password && errors.password && <p>{errors.password}</p>}
 
 				<FormInput type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
-=======
-				<Field style={InputStyle} type="text" name="name" placeholder="Name" value={values.name} />
-				{touched.name && errors.name && <p>{errors.name}</p>}
-
-				<Field style={InputStyle} type="email" name="email" placeholder="Email" value={values.email} />
-				{touched.email && errors.email && <p>{errors.email}</p>}
-
-				<Field style={InputStyle} type="password" name="password" placeholder="Password" value={values.password} />
-				{touched.password && errors.password && <p>{errors.password}</p>}
-
-				<Field style={InputStyle} type="password" name="confirm" placeholder="Confirm Password" value={values.confirm} />
->>>>>>> a43f9edb41d6652aff05ec87528866210362215b
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
 				<OnboardingButton type="submit">Next</OnboardingButton>
 			</Form>
@@ -84,7 +64,6 @@ export default withFormik({
 		name: Yup.string().required('Please fill in your name!'),
 		email: Yup.string().required('Please provide your email!'),
 		password: Yup.string().required('Password Required!'),
-<<<<<<< HEAD
 		confirm: Yup.string().required('Confirm Password!')
 	})
 
@@ -102,23 +81,4 @@ export default withFormik({
 	// 			console.log('Error', err);
 	// 		});
 	// }
-=======
-		confirm: Yup.string().required('Confirm Password!'),
-	}),
-	handleSumbit(values, { setStatus, resetForm }) {
-		console.log('submitting form:', values);
-
-		Axios.post('', values)
-			.then((res) => {
-				console.log(res, 'successful');
-				setStatus(res);
-			})
-			.catch((err) => {
-				console.log('Error', err);
-			});
-	}
-
->>>>>>> a43f9edb41d6652aff05ec87528866210362215b
 })(Register);
-
-
