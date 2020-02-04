@@ -5,7 +5,6 @@ import RegForm from '../components/RegForm/RegForm';
 function RegPage() {
 	return (
 		<div className="RegPage">
-			<Navbar />
 			<div className="container">
 				<RegForm />
 			</div>
