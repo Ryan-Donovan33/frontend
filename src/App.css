@@ -3,3 +3,17 @@
   width: 90%;
   margin: 0 auto;
 }
+
+
+@keyframes hopwalk{
+  /* nothing, yet */
+  
+}
+
+.RegPage, .login-page{
+  text-align: center;
+  padding-top: 100px;
+  background: linear-gradient(180deg, #4864E6, #4BD6F2);
+  height: 100vh;
+  color: white;
+}
