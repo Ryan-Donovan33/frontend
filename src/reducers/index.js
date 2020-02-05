@@ -2,7 +2,7 @@ const initialState = {
     id: Date.now(),
     nickname: "MrHatBirb",
     health: 10,
-    foodEaten: [{id: 1, title: 'Food'}]
+    foodEaten: [{id: 1, title: 'Food', category: 1}]
 
 };
 
