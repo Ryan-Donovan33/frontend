@@ -38,9 +38,9 @@ function HistoryList(props){
     return (
         <div className="history-list">
             <ListCard>
-            <MealSection {...props} title="Breakfast" meals={props.foodEaten}/>
-            <MealSection {...props} title="Lunch" meals={props.foodEaten}/>
-            <MealSection {...props} title="Dinner" meals={props.foodEaten}/>
+            <MealSection {...props} title="Breakfast" meals={props.foodEaten.filter(meal=>{return meal.category == 1})}/>
+            <MealSection {...props} title="Lunch" meals={props.foodEaten.filter(meal=>{return meal.category == 2})}/>
+            <MealSection {...props} title="Dinner" meals={props.foodEaten.filter(meal=>{return meal.category == 3})}/>
 
             </ListCard>
         </div>

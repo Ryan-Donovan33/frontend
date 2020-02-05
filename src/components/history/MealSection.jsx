@@ -27,9 +27,9 @@ export default function MealSection({ title, meals, ...props }) {
   return (
     <div className="meal-section">
       <SectionTitle>{title}</SectionTitle>
-      {meals.map(meal => {
+      {meals.length ? meals.map(meal => {
         return <MealTitle onClick={()=>{props.history.push(`update/${meal.id}`)}} key={meal.id}>{meal.title}</MealTitle>;
-      })}
+      }) : <MealTitle>No {title} yet!</MealTitle> }
       <AddButton
         onClick={e => {
           e.preventDefault();
