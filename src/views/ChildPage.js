@@ -1,11 +1,9 @@
 import React from 'react';
-import Navbar from '../components/layout/Navbar';
 import ChildInfo from '../components/ChildInfo/ChildInfo';
 
 function ChildPage() {
 	return (
-		<div>
-			<Navbar />
+		<div className="RegPage">
 			<div className="container">
 				<ChildInfo />
 			</div>
