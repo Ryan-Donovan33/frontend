@@ -62,7 +62,7 @@ const ChildCard = ({ errors, touched, values, status }) => {
 					value={values.date}
 				/>
 
-				<Link to="">
+				<Link to="/finalRegStep">
 					<OnboardingButton>Wrap Up!</OnboardingButton>
 				</Link>
 			</Form>
