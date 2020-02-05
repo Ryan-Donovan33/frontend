@@ -17,6 +17,7 @@ export default function RouterView() {
 			<Route exact path="/" component={Dashboard} />
 			<Route exact path="/history" component={History} />
 			<Route exact path="/add" component={AddEntry} />
+			<Route exact path="/update/:id" component={AddEntry} />
 			<Route path="/login" component={LoginPage} />
 			<Route path="/onboarding-1" component={RegPage} />
 			<Route path="/childinfo" component={ChildPage} />

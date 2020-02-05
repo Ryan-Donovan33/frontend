@@ -64,7 +64,7 @@ export const SecondaryButton = styled.button`
 export const OnboardingButtonLine = styled.button`
   width: 100%;
   height: 50px;
-  border: 2px solid white};
+  border: 2px solid white;
   border-radius: 10px;
   padding: 0 5px;
   box-sizing: border-box;
