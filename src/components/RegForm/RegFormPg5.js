@@ -5,7 +5,7 @@ import {
   OnboardingButton,
   OnboardingButtonLine
 } from "../GeneralStyling";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field} from "formik";
 import axios from "axios";
 
 const Nickname = () => (
