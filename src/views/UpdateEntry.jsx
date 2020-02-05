@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import { Card, FormInput, PrimaryButton, FormSelect, FormSelectOption, SecondaryButton } from "../components/GeneralStyling";
+import TitleBar from "../components/layout/TitleBar";
 
 
 function UpdateEntry(props){
@@ -22,6 +23,8 @@ function UpdateEntry(props){
     return(
         <div className="update-entry">
             <div className="container">
+            <TitleBar {...props} title="Update Entry" />
+
             <Card>
                 <form onSubmit={handleSubmit}>
                     <FormInput onChange={handleChange} placeholder="Food Title" name="title" />
