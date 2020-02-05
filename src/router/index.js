@@ -10,6 +10,7 @@ import AddEntry from '../views/AddEntry';
 import RegPage from '../views/RegPage';
 import ChildPage from '../views/ChildPage';
 import LoginPage from '../views/LoginPage';
+import RegLastPg from '../views/RegLastPage';
 
 export default function RouterView() {
 	return (
@@ -21,6 +22,7 @@ export default function RouterView() {
 			<Route path="/login" component={LoginPage} />
 			<Route path="/onboarding-1" component={RegPage} />
 			<Route path="/childinfo" component={ChildPage} />
+			<Route path="/finalRegStep" component={RegLastPg} />
 		</div>
 	);
 }

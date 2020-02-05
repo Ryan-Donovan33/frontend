@@ -25,11 +25,10 @@ const Login = () => (
         return errors;
       }}
       onSubmit={(values) => {
-        console.log(values)
-        axios.post("https://gigapetdb.herokuapp.com/auth/register", values)
+        axios.post("https://gigapetdb.herokuapp.com/auth/login", values)
         .then(res => {
           console.log(res)
-          // localStorage.setItem("token", res.data.token);
+          localStorage.setItem("token", res.data.token);
         })
         .catch(err=>{
           console.log(err)
