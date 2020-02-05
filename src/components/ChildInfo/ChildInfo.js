@@ -16,6 +16,10 @@ const FormInput = styled.input`
 	font-size: 16px;
 `;
 
+const Checkbox = (props) => {
+	return;
+};
+
 const ChildCard = ({ errors, touched, values, status }) => {
 	const [ child, setChild ] = useState([]);
 
@@ -44,8 +48,8 @@ const ChildCard = ({ errors, touched, values, status }) => {
 
 				<label style={IconStyle}>
 					<img src="assets/Icon ionic-ios-arrow-non-binary.svg" alt="Non-Binary Icon" />
-					<Field type="checkbox" name="tbd" value={values.tbd} />
-					Non-Binary
+					<Field type="checkbox" name="nb" value={values.nb} />
+					<span>Female</span>
 				</label>
 
 				<label style={IconStyle}>
