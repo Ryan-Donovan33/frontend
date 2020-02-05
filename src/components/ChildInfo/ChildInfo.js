@@ -30,7 +30,7 @@ const ChildCard = ({ errors, touched, values, status }) => {
 		<div className="onboarding-1">
 			<div style={{ color: 'white' }}>
 				<h3>Great! You are almost done.</h3>
-				<h4>Let's get your child's information below!</h4>
+				<h4 style={{ fontWeight: 'normal' }}>Let's get your child's information below!</h4>
 			</div>
 			<Form>
 				<Field style={InputStyle} type="text" name="name" placeholder="Name" value={values.name} />

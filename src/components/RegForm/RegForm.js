@@ -18,7 +18,7 @@ const Register = ({ errors, touched, values, status, ...props }) => {
 		<div className="onboarding-1">
 			<div style={{ color: 'white' }}>
 				<h3>Let's get started!</h3>
-				<h4>First, let's get your information</h4>
+				<h4 style={{ fontWeight: 'normal' }}>First, let's get your information</h4>
 			</div>
 			<Form>
 				<Field style={InputStyle} type="text" name="name" placeholder="Name" value={values.name} />
