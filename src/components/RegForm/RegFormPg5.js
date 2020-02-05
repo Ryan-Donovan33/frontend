@@ -12,7 +12,7 @@ const Nickname = () => (
     <div>
         <div className='regPgHeader'>
             <h2>You are all set up!</h2>
-            <h3>Now let's name your GigaPet and start your journey!</h3>
+            <h3 style={{fontWeight:'normal'}}>Now let's name your GigaPet and start your journey!</h3>
         </div>
         <Formik 
         className="container"
@@ -36,7 +36,7 @@ const Nickname = () => (
                     name="nickname"
                 />
                 <OnboardingButton type="submit">
-                    Log In
+                    Got to Dashboard
                 </OnboardingButton>
             </Form>
             )}
