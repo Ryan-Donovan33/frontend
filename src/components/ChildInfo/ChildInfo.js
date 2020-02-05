@@ -58,7 +58,7 @@ const ChildCard = ({ errors, touched, values, status }) => {
 					style={InputStyle}
 					type="date"
 					name="date"
-					placeholder="Date of Birth (mm/dd/yyyy)"
+					// placeholder="Date of Birth (mm/dd/yyyy)"
 					value={values.date}
 				/>
 

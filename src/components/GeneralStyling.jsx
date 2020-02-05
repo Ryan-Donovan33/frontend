@@ -95,8 +95,8 @@ export const InputStyle = {
 };
 
 export const IconStyle = {
-	width: '40%',
+	width: '30%',
 	height: '35px',
-	padding: '5px 10px',
+	padding: '0 5px',
 	color: 'white'
 };
