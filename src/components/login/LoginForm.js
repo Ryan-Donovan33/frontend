@@ -9,26 +9,25 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
 const Login = () => (
-
-
   <div>
     <Formik
       className="container"
-      initialValues={{ email: "", password: "" }}
+      initialValues={{ username: "", password: "" }}
       validate={values => {
         const errors = {};
-        if (!values.email || !values.password) {
-          errors.email = "All fields are required";
+        if (!values.username || !values.password) {
+          errors.username = "All fields are required";
         } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.username)
         ) {
-          errors.email = "Invalid email address";
+          errors.username = "Invalid email address";
         }
         return errors;
       }}
       onSubmit={(values) => {
         axios.post("https://gigapetdb.herokuapp.com/auth/login", values)
         .then(res => {
+          console.log(res)
           localStorage.setItem("token", res.data.token);
         })
         .catch(err=>{
@@ -41,8 +40,8 @@ const Login = () => (
           <Field
             placeholder="Email"
             style={InputStyle}
-            type="email"
-            name="email"
+            type="text"
+            name="username"
           />
           <Field
             placeholder="Password"
@@ -52,7 +51,7 @@ const Login = () => (
           />
           <ErrorMessage
             style={{ fontSize: "14px" }}
-            name="email"
+            name="username"
             component="div"
           />
           <ErrorMessage
