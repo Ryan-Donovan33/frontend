@@ -73,7 +73,7 @@ export default withFormik({
 	handleSumbit(values, { setStatus, resetForm }) {
 		console.log('submitting form:', values);
 
-		Axios.post('https://gigapetdb.herokuapp.com/users', values)
+		Axios.post('https://gigapetdb.herokuapp.com/auth/register', values)
 			.then((res) => {
 				console.log(res, 'successful');
 				setStatus(res);
