@@ -17,7 +17,7 @@ const FormInput = styled.input`
 `;
 
 const Checkbox = (props) => {
-	return;
+	return <div className={props.selected ? 'selected' : 'not-selected'} />;
 };
 
 const ChildCard = ({ errors, touched, values, status }) => {
@@ -42,19 +42,19 @@ const ChildCard = ({ errors, touched, values, status }) => {
 
 				<label style={IconStyle}>
 					<img src="assets/Icon ionic-md-male.svg" alt="Male Icon" />
-					<Field type="checkbox" name="male" placeholder="Male" value={values.male} />
+					<Field type="checkbox" name="male" value={values.male} />
 					Male
 				</label>
 
 				<label style={IconStyle}>
 					<img src="assets/Icon ionic-ios-arrow-non-binary.svg" alt="Non-Binary Icon" />
 					<Field type="checkbox" name="nb" value={values.nb} />
-					<span>Female</span>
+					Non-Binary
 				</label>
 
 				<label style={IconStyle}>
 					<img src="assets/Icon ionic-md-female.svg" alt="Female Icon" />
-					<Field type="checkbox" name="female" placeholder="Female" value={values.female} />
+					<Field type="checkbox" name="female" value={values.female} />
 					Female
 				</label>
 
@@ -78,8 +78,8 @@ const ChildInfo = withFormik({
 	mapPropsToValues({ users }) {
 		return {
 			name: users || '',
-			tbd: false,
-			male: false,
+			nb: false,
+			male: true,
 			female: false,
 			date: ''
 		};
@@ -96,7 +96,7 @@ const ChildInfo = withFormik({
 	handleSubmit(values, { setStatus, resetForm }) {
 		console.log('submitting form:', values);
 
-		Axios.post('', values)
+		Axios.post('https://gigapetdb.herokuapp.com/auth/registerv', values)
 			.then((res) => {
 				console.log('Success:', res);
 				setStatus(res.data);
