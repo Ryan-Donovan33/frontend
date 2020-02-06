@@ -32,9 +32,9 @@ function UpdateEntry(props){
                     <FormInput onChange={handleChange} placeholder="Food Title" name="title" />
                     <FormSelect onChange={handleChange} name="category" defaultValue="Category">
                         <FormSelectOption value="" disabled hidden>Category</FormSelectOption>
-                        <FormSelectOption value="1" >Category 1</FormSelectOption>
-                        <FormSelectOption value="2" >Category 2</FormSelectOption>
-                        <FormSelectOption value="3" >Category 3</FormSelectOption>
+                        <FormSelectOption value="1" >Breakfast</FormSelectOption>
+                        <FormSelectOption value="2" >Lunch</FormSelectOption>
+                        <FormSelectOption value="3" >Dinner</FormSelectOption>
                     </FormSelect>
                     <PrimaryButton type="submit">Update Entry</PrimaryButton>
                     <SecondaryButton onClick={()=>{props.history.goBack()}} type="button">Delete</SecondaryButton>
