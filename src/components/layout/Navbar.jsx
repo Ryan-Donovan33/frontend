@@ -22,8 +22,8 @@ export default function Navbar(){
     return (
         <Nav>
             <FlexContainer>
-            <img src="assets/logo.svg" alt="logo" />
-            <img src="assets/Icon ionic-ios-menu.svg" alt="menu" />
+            <img src="/assets/logo.svg" alt="logo" />
+            <img src="/assets/Icon ionic-ios-menu.svg" alt="menu" />
 
             </FlexContainer>
         
