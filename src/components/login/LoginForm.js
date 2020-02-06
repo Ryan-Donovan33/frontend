@@ -28,7 +28,6 @@ const Login = () => {
       }}
       onSubmit={(values) => {
         setLoading(true)
-        setIsLoading = true
         axios.post("https://gigapetdb.herokuapp.com/auth/login", values)
         .then(res => {
           console.log(res)
