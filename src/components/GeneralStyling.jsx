@@ -58,15 +58,15 @@ export const SecondaryButton = styled.button`
 	background: none;
 `;
 export const OnboardingButtonLine = styled.button`
-  width: 100%;
-  height: 50px;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 0 5px;
-  box-sizing: border-box;
-  color: white;
-  font-weight: bold;
-  background: none;
+	width: 100%;
+	height: 50px;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 0 5px;
+	box-sizing: border-box;
+	color: white;
+	font-weight: bold;
+	background: none;
 `;
 export const OnboardingButton = styled.button`
 	width: 100%;
@@ -95,8 +95,10 @@ export const InputStyle = {
 };
 
 export const IconStyle = {
+	display: 'flex',
+	flexDirection: 'column',
 	width: '30%',
-	height: '35px',
+	height: '80px',
 	padding: '0 5px',
 	color: 'white'
 };

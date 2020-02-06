@@ -6,14 +6,9 @@ import Axios from 'axios';
 import styled from 'styled-components';
 import { OnboardingButton, InputStyle, IconStyle } from '../GeneralStyling';
 
-const FormInput = styled.input`
-	width: 100%;
-	height: 50px;
-	border: 2px solid #4864e6;
-	border-radius: 15px;
-	padding: 0 5px;
-	box-sizing: border-box;
-	font-size: 16px;
+const LabelFlex = styled.div`
+	display: flex;
+	padding: 10px;
 `;
 
 const Checkbox = (props) => {
@@ -37,27 +32,28 @@ const ChildCard = ({ errors, touched, values, status }) => {
 				<h4 style={{ fontWeight: 'normal' }}>Let's get your child's information below!</h4>
 			</div>
 			<Form>
-				<input style={InputStyle} type="text" name="name" placeholder="Name" value={values.name} />
+				<Field style={InputStyle} type="text" name="name" placeholder="Name" value={values.name} />
 				{touched.name && errors.name && <p>{errors.name}</p>}
 
-				<label style={IconStyle}>
-					<img src="assets/Icon ionic-md-male.svg" alt="Male Icon" />
-					<input type="checkbox" name="male" value={values.male} />
-					Male
-				</label>
+				<LabelFlex>
+					<label style={IconStyle}>
+						<img src="assets/Icon ionic-md-male.svg" alt="Male Icon" />
+						<input type="checkbox" name="male" value={values.male} />
+						Male
+					</label>
 
-				<label style={IconStyle}>
-					<img src="assets/Icon ionic-ios-arrow-non-binary.svg" alt="Non-Binary Icon" />
-					<input type="checkbox" name="nb" value={values.nb} />
-					Non-Binary
-				</label>
+					<label style={IconStyle}>
+						<img src="assets/Icon ionic-ios-arrow-non-binary.svg" alt="Non-Binary Icon" />
+						<input type="checkbox" name="nb" value={values.nb} />
+						Non-Binary
+					</label>
 
-				<label style={IconStyle}>
-					<img src="assets/Icon ionic-md-female.svg" alt="Female Icon" />
-					<input type="checkbox" name="female" value={values.female} />
-					Female
-				</label>
-
+					<label style={IconStyle}>
+						<img src="assets/Icon ionic-md-female.svg" alt="Female Icon" />
+						<input type="checkbox" name="female" value={values.female} />
+						Female
+					</label>
+				</LabelFlex>
 				<Field
 					style={InputStyle}
 					type="date"
