@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from 'react-router-dom';
 import {
   InputStyle,
@@ -8,7 +8,9 @@ import {
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
-const Login = () => (
+const Login = () => {
+  const [ isLoading, setLoading ] = useState(false)
+  return (
   <div>
     <Formik
       className="container"
@@ -25,17 +27,23 @@ const Login = () => (
         return errors;
       }}
       onSubmit={(values) => {
+        setLoading(true)
+        setIsLoading = true
         axios.post("https://gigapetdb.herokuapp.com/auth/login", values)
         .then(res => {
           console.log(res)
           localStorage.setItem("token", res.data.token);
+          setLoading(false)
         })
         .catch(err=>{
+          setLoading(false)
           console.log(err)
         })
       }}
     >
       {({ isSubmitting }) => (
+
+      
         <Form>
           <Field
             placeholder="Email"
@@ -60,7 +68,7 @@ const Login = () => (
             component="div"
           />
           <OnboardingButton type="submit">
-            Log In
+            {isLoading ? 'Loading...' : 'Log In'}
           </OnboardingButton>
           <Link to="/onboarding-1">
           <OnboardingButtonLine type="button">
@@ -73,6 +81,6 @@ const Login = () => (
       )}
     </Formik>
   </div>
-);
+)};
 
 export default Login;
