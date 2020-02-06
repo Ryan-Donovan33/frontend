@@ -3,7 +3,7 @@ import ChildInfo from '../components/ChildInfo/ChildInfo';
 
 function ChildPage() {
 	return (
-		<div className="RegPage">
+		<div className="ChildPage">
 			<div className="container">
 				<ChildInfo />
 			</div>
