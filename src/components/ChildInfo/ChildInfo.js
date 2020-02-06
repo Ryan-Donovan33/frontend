@@ -6,19 +6,14 @@ import Axios from 'axios';
 import styled from 'styled-components';
 import { OnboardingButton, InputStyle, IconStyle } from '../GeneralStyling';
 
-const FormInput = styled.input`
-	width: 100%;
-	height: 50px;
-	border: 2px solid #4864e6;
-	border-radius: 15px;
-	padding: 0 5px;
-	box-sizing: border-box;
-	font-size: 16px;
+const LabelFlex = styled.div`
+	display: flex;
+	padding: 10px;
 `;
 
-const Checkbox = (props) => {
-	return <div className={props.selected ? 'selected' : 'not-selected'} />;
-};
+// const Checkbox = (props) => {
+// 	return <div className={props.selected ? 'selected' : 'not-selected'} />;
+// };
 
 const ChildCard = ({ errors, touched, values, status }) => {
 	const [ child, setChild ] = useState([]);
@@ -40,24 +35,26 @@ const ChildCard = ({ errors, touched, values, status }) => {
 				<Field style={InputStyle} type="text" name="name" placeholder="Name" value={values.name} />
 				{touched.name && errors.name && <p>{errors.name}</p>}
 
-				<label style={IconStyle}>
-					<img src="assets/Icon ionic-md-male.svg" alt="Male Icon" />
-					<Field type="checkbox" name="male" value={values.male} />
-					Male
-				</label>
+				<LabelFlex>
+					<label style={IconStyle}>
+						<img src="assets/Icon ionic-md-male.svg" alt="Male Icon" />
+						<input type="checkbox" name="male" value={values.male} />
+						Male
+					</label>
 
-				<label style={IconStyle}>
-					<img src="assets/Icon ionic-ios-arrow-non-binary.svg" alt="Non-Binary Icon" />
-					<Field type="checkbox" name="nb" value={values.nb} />
-					Non-Binary
-				</label>
+					<label style={IconStyle}>
+						<img src="assets/Icon ionic-ios-arrow-non-binary.svg" alt="Non-Binary Icon" />
+						<input type="checkbox" name="nb" value={values.nb} />
+						Non-Binary
+					</label>
 
-				<label style={IconStyle}>
-					<img src="assets/Icon ionic-md-female.svg" alt="Female Icon" />
-					<Field type="checkbox" name="female" value={values.female} />
-					Female
-				</label>
-
+					<label style={IconStyle}>
+						<img src="assets/Icon ionic-md-female.svg" alt="Female Icon" />
+						<input type="checkbox" name="female" value={values.female} />
+						{/* If i want to hide the checkbox I can use style={{ display: 'none' }} however, not sure how to make img change color once selected. Right now it is functional */}
+						Female
+					</label>
+				</LabelFlex>
 				<Field
 					style={InputStyle}
 					type="date"
@@ -73,13 +70,14 @@ const ChildCard = ({ errors, touched, values, status }) => {
 		</div>
 	);
 };
+//using higher order component
 
 const ChildInfo = withFormik({
 	mapPropsToValues({ users }) {
 		return {
 			name: users || '',
 			nb: false,
-			male: true,
+			male: false,
 			female: false,
 			date: ''
 		};
@@ -96,7 +94,7 @@ const ChildInfo = withFormik({
 	handleSubmit(values, { setStatus, resetForm }) {
 		console.log('submitting form:', values);
 
-		Axios.post('https://gigapetdb.herokuapp.com/auth/registerv', values)
+		Axios.post('https://gigapetdb.herokuapp.com/auth/register', values)
 			.then((res) => {
 				console.log('Success:', res);
 				setStatus(res.data);
