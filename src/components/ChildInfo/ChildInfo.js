@@ -37,24 +37,24 @@ const ChildCard = ({ errors, touched, values, status }) => {
 				<h4 style={{ fontWeight: 'normal' }}>Let's get your child's information below!</h4>
 			</div>
 			<Form>
-				<Field style={InputStyle} type="text" name="name" placeholder="Name" value={values.name} />
+				<input style={InputStyle} type="text" name="name" placeholder="Name" value={values.name} />
 				{touched.name && errors.name && <p>{errors.name}</p>}
 
 				<label style={IconStyle}>
 					<img src="assets/Icon ionic-md-male.svg" alt="Male Icon" />
-					<Field type="checkbox" name="male" value={values.male} />
+					<input type="checkbox" name="male" value={values.male} />
 					Male
 				</label>
 
 				<label style={IconStyle}>
 					<img src="assets/Icon ionic-ios-arrow-non-binary.svg" alt="Non-Binary Icon" />
-					<Field type="checkbox" name="nb" value={values.nb} />
+					<input type="checkbox" name="nb" value={values.nb} />
 					Non-Binary
 				</label>
 
 				<label style={IconStyle}>
 					<img src="assets/Icon ionic-md-female.svg" alt="Female Icon" />
-					<Field type="checkbox" name="female" value={values.female} />
+					<input type="checkbox" name="female" value={values.female} />
 					Female
 				</label>
 
@@ -73,13 +73,14 @@ const ChildCard = ({ errors, touched, values, status }) => {
 		</div>
 	);
 };
+//using higher order component
 
 const ChildInfo = withFormik({
 	mapPropsToValues({ users }) {
 		return {
 			name: users || '',
 			nb: false,
-			male: true,
+			male: false,
 			female: false,
 			date: ''
 		};
@@ -96,7 +97,7 @@ const ChildInfo = withFormik({
 	handleSubmit(values, { setStatus, resetForm }) {
 		console.log('submitting form:', values);
 
-		Axios.post('https://gigapetdb.herokuapp.com/auth/registerv', values)
+		Axios.post('https://gigapetdb.herokuapp.com/auth/register', values)
 			.then((res) => {
 				console.log('Success:', res);
 				setStatus(res.data);
