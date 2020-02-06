@@ -11,9 +11,9 @@ const LabelFlex = styled.div`
 	padding: 10px;
 `;
 
-const Checkbox = (props) => {
-	return <div className={props.selected ? 'selected' : 'not-selected'} />;
-};
+// const Checkbox = (props) => {
+// 	return <div className={props.selected ? 'selected' : 'not-selected'} />;
+// };
 
 const ChildCard = ({ errors, touched, values, status }) => {
 	const [ child, setChild ] = useState([]);
@@ -51,6 +51,7 @@ const ChildCard = ({ errors, touched, values, status }) => {
 					<label style={IconStyle}>
 						<img src="assets/Icon ionic-md-female.svg" alt="Female Icon" />
 						<input type="checkbox" name="female" value={values.female} />
+						{/* If i want to hide the checkbox I can use style={{ display: 'none' }} however, not sure how to make img change color once selected. Right now it is functional */}
 						Female
 					</label>
 				</LabelFlex>
