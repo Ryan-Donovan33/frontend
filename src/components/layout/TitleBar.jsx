@@ -26,7 +26,7 @@ const BarTitle = styled.div`
 export default function TitleBar(props) {
   return (
     <BarContent>
-      <BackButton onClick={()=>{props.history.goBack()}}><img style={{marginRight: '2px'}} src="assets/Icon ionic-ios-arrow-back.svg" alt="back arrow"/>Back</BackButton>
+      <BackButton onClick={()=>{props.history.goBack()}}><img style={{marginRight: '2px'}} src="/assets/Icon ionic-ios-arrow-back.svg" alt="back arrow"/>Back</BackButton>
       <BarTitle>{props.title}</BarTitle>
       <div></div>
     </BarContent>

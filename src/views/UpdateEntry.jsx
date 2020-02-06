@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import { Card, FormInput, PrimaryButton, FormSelect, FormSelectOption, SecondaryButton } from "../components/GeneralStyling";
 import TitleBar from "../components/layout/TitleBar";
-import Navbar from '../components/layout/Navbar';
+import Navbar from "../components/layout/Navbar";
 
 
 function UpdateEntry(props){
-
+    console.log(props.match.params.id)
     const [food, setFood] = useState({});
 
     const handleChange = e =>{
@@ -23,7 +23,7 @@ function UpdateEntry(props){
 
     return(
         <div className="update-entry">
-            <Navbar/>
+            <Navbar />
             <div className="container">
             <TitleBar {...props} title="Update Entry" />
 
