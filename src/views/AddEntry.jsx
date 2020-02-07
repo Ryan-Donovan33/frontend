@@ -13,19 +13,17 @@ function AddEntry(props) {
   const handleChange = e =>{
     setFood({
       ...food,
-      id: Date.now(),
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
 
   const handleSubmit = e =>{
     e.preventDefault();
-    if (food.title && food.category){
+    if (food.name && food.category_id){
 
-      apiCall().post(`/auth/:id/pet`).then(res=>{
-        console.log(res)
-        props.addFood(food);
-        // props.history.goBack()
+      apiCall().post(`/auth/user/${props.id}/pet/${props.pet_id}/foods`, {food}).then(res=>{
+        props.addFood(res.data);
+        props.history.goBack()
       })
 
 
@@ -42,8 +40,8 @@ function AddEntry(props) {
 
         <Card style={{height: 'calc(100vh - 200px)', paddingTop: '50px'}}>
         <form onSubmit={handleSubmit}>
-            <FormInput name="title" onChange={handleChange} placeholder="Food Name" type="text"/>
-            <FormSelect name="category" onChange={handleChange} defaultValue=""  placeholder="Category">
+            <FormInput name="name" onChange={handleChange} placeholder="Food Name" type="text"/>
+            <FormSelect name="category_id" onChange={handleChange} defaultValue=""  placeholder="Category">
             <FormSelectOption value="" disabled hidden>Category</FormSelectOption>
             <FormSelectOption value="1" >Breakfast</FormSelectOption>
             <FormSelectOption value="2" >Lunch</FormSelectOption>
@@ -63,5 +61,8 @@ function AddEntry(props) {
 }
 
 export default connect(state => {
-  return {};
+  return {
+    id: state.id,
+    pet_id: state.pet_id
+  };
 }, {addFood: addFood})(AddEntry);

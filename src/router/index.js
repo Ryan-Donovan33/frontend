@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import RouteGuard from './routerGuard';
+import PublicRoute from './publicRoute';
 
 // Import View Here
 
@@ -20,10 +21,10 @@ export default function RouterView() {
 			<RouteGuard exact path="/history" component={History} />
 			<RouteGuard exact path="/add" component={AddEntry} />
 			<RouteGuard path="/update/:id" component={UpdateEntry} />
-			<Route path="/login" component={LoginPage} />
-			<Route path="/onboarding-1" component={RegPage} />
-			<Route path="/childinfo" component={ChildPage} />
-			<Route path="/finalRegStep" component={RegLastPg} />
+			<PublicRoute path="/login" component={LoginPage} />
+			<PublicRoute path="/onboarding-1" component={RegPage} />
+			<RouteGuard path="/childinfo" component={ChildPage} />
+			<RouteGuard path="/finalRegStep" component={RegLastPg} />
 		</div>
 	);
 }

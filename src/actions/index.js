@@ -16,9 +16,9 @@ export const deleteFood = (data) =>{
         payload: data
     }
 }
-export const getByFood = (data) =>{
+export const getFood = (data) =>{
     return {
-        type: "GET_FOOD_BY_DATE",
+        type: "GET_FOOD",
         payload: data
     }
 }
