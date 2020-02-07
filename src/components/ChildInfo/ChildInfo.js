@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import styled from 'styled-components';
 import { OnboardingButton, InputStyle, IconStyle } from '../GeneralStyling';
@@ -11,7 +10,7 @@ const LabelFlex = styled.div`
 	padding: 10px;
 `;
 
-const ChildCard = ({ errors, touched, values, status }) => {
+const ChildCard = ({ errors, touched, values, status, ...props }) => {
 	const [ child, setChild ] = useState([]);
 
 	useEffect(
@@ -59,9 +58,14 @@ const ChildCard = ({ errors, touched, values, status }) => {
 					value={values.date}
 				/>
 
-				<Link to="/finalRegStep">
-					<OnboardingButton>Wrap Up!</OnboardingButton>
-				</Link>
+				<OnboardingButton
+					onClick={() => {
+						props.history.push('/finalRegStep');
+					}}
+					type="submit"
+				>
+					Wrap Up!
+				</OnboardingButton>
 			</Form>
 
 			{child.map((el) => (
