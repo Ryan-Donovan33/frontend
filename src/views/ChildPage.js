@@ -1,11 +1,11 @@
 import React from 'react';
 import ChildInfo from '../components/ChildInfo/ChildInfo';
 
-function ChildPage() {
+function ChildPage(props) {
 	return (
 		<div className="ChildPage">
 			<div className="container">
-				<ChildInfo />
+				<ChildInfo {...props} />
 			</div>
 		</div>
 	);
