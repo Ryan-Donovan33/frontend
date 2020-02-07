@@ -1,19 +1,20 @@
-.container{
-  max-width: 400px;
-  width: 90%;
-  margin: 0 auto;
+.container {
+	max-width: 400px;
+	width: 90%;
+	margin: 0 auto;
 }
 
-
-@keyframes hopwalk{
-  /* nothing, yet */
-  
+@keyframes hopwalk {
+	/* nothing, yet */
 }
 
-.RegPage, .login-page, .regLastPg{
-  text-align: center;
-  padding-top: 100px;
-  background: linear-gradient(180deg, #4864E6, #4BD6F2);
-  height: 100vh;
-  color: white;
+.RegPage,
+.login-page,
+.regLastPg,
+.ChildPage {
+	text-align: center;
+	padding-top: 100px;
+	background: linear-gradient(180deg, #4864e6, #4bd6f2);
+	height: 100vh;
+	color: white;
 }
