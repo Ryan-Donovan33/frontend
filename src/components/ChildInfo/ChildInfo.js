@@ -11,10 +11,6 @@ const LabelFlex = styled.div`
 	padding: 10px;
 `;
 
-// const Checkbox = (props) => {
-// 	return <div className={props.selected ? 'selected' : 'not-selected'} />;
-// };
-
 const ChildCard = ({ errors, touched, values, status }) => {
 	const [ child, setChild ] = useState([]);
 
