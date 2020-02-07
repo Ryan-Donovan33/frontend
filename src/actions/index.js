@@ -28,3 +28,9 @@ export const addUser = (data) =>{
         payload: data
     }
 }
+export const getPetInfo = (data) =>{
+    return {
+        type: "GET_PET_INFO",
+        payload: data
+    }
+}

@@ -1,7 +1,7 @@
 const initialState = {
-    id: Date.now(),
+    id: 5,
     pet_id: 1,
-    pet_name: "MrHatBirb",
+    pet_name: "Loading...",
     health: 10,
     foodEaten: [{id: 1, title: 'Food', category: 1}]
 
@@ -25,9 +25,17 @@ const petReducer = (state = initialState, action) => {
       console.log(`content from ${Date}`)
       break;
     case "ADD_USER":
+      console.log(action.payload)
       return{
         ...state,
         id: action.payload
+      }
+    case "GET_PET_INFO":
+      return {
+        ...state,
+        pet_name: action.payload.pet_name,
+        health: action.payload.health
+
       }
     default:
       return state;

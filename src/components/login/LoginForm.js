@@ -34,10 +34,11 @@ const Login = ({addUser, ...props}) => {
         axios.post("https://gigapetdb.herokuapp.com/auth/login", values)
         .then(res => {
           console.log(res)
-          localStorage.setItem("token", res.data.token);
-          setLoading(false);
           addUser(res.data.id)
+          localStorage.setItem("token", res.data.token);
           props.history.push('/')
+          // setLoading(false);
+          console.log('boop')
         })
         .catch(err=>{
           setLoading(false)
