@@ -13,3 +13,5 @@ const routerGuard = ({component: Component, ...rest}) =>{
         />
     )
 }
+
+export default routerGuard;
