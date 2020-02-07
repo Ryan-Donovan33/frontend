@@ -3,7 +3,7 @@ const initialState = {
     pet_id: 1,
     pet_name: "Loading...",
     health: 10,
-    foodEaten: [{id: 1, title: 'Food', category: 1}]
+    foodEaten: [{id: 1, name: 'Sample Entry', category_id: 3}]
 
 };
 
@@ -21,9 +21,11 @@ const petReducer = (state = initialState, action) => {
     case "DELETE_FOOD":
       console.log('Deleted');
       break;
-    case "GET_FOOD_BY_DATE":
-      console.log(`content from ${Date}`)
-      break;
+    case "GET_FOOD":
+      return {
+        ...state,
+        foodEaten: action.payload
+      }
     case "ADD_USER":
       console.log(action.payload)
       return{
