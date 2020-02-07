@@ -1,9 +1,7 @@
 import React from "react";
-import {Link} from 'react-router-dom';
 import {
   InputStyle,
   OnboardingButton,
-  OnboardingButtonLine
 } from "../GeneralStyling";
 import { Formik, Form, Field} from "formik";
 import axios from "axios";
