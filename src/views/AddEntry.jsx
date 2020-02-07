@@ -4,6 +4,7 @@ import {addFood} from '../actions/'
 import { Card, FormInput, PrimaryButton, FormSelect, FormSelectOption, SecondaryButton } from "../components/GeneralStyling";
 import Navbar from "../components/layout/Navbar";
 import TitleBar from "../components/layout/TitleBar";
+import {apiCall} from '../utils/apiCall';
 
 function AddEntry(props) {
 
@@ -20,8 +21,13 @@ function AddEntry(props) {
   const handleSubmit = e =>{
     e.preventDefault();
     if (food.title && food.category){
-      props.addFood(food);
-      props.history.goBack()
+
+      apiCall().post(`/auth/:id/pet`).then(res=>{
+        console.log(res)
+        props.addFood(food);
+        // props.history.goBack()
+      })
+
 
     } else {
       alert('this is empty you fool')
