@@ -76,7 +76,7 @@ export default withFormik({
 		Axios.post('https://gigapetdb.herokuapp.com/auth/register', values)
 			.then((res) => {
 				console.log(res, 'successful');
-				setStatus(res);
+				setStatus(res.data);
 				resetForm();
 			})
 			.catch((err) => {

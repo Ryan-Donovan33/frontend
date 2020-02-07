@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import MealSection from './MealSection';
-import { useEffect } from 'react';
 import { thisExpression } from '@babel/types';
 
 const ListCard = styled.div`
@@ -42,10 +41,11 @@ function HistoryList(props) {
 	const [ history, setHistory ] = useState([]);
 	useEffect(() => {
 		axios
-			.get('https://gigapetdb.herokuapp.com/auth/:id/pet/:pet_id/:food_id')
+			.get('https://gigapetdb.herokuapp.com/auth/:id/pet/:pet_id/:food')
 			.then((res) => setHistory(res.data))
 			.catch((err) => console.log('error', err));
 	}, []);
+
 	return (
 		<div className="history-list">
 			<ListCard>
