@@ -24,6 +24,11 @@ const petReducer = (state = initialState, action) => {
     case "GET_FOOD_BY_DATE":
       console.log(`content from ${Date}`)
       break;
+    case "ADD_USER":
+      return{
+        ...state,
+        id: action.payload
+      }
     default:
       return state;
   }
