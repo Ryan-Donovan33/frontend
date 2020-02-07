@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import MealSection from './MealSection';
@@ -36,13 +36,13 @@ const ListCard = styled.div`
 
 // https://gigapetdb.herokuapp.com/auth/:id/pet/:pet_id/:food_id
 
-function HistoryList({id, pet_id, ...props}) {
+function HistoryList(props) {
 	useEffect(() => {
 		apiCall()
-			.get(`/auth/${id}/pet/${pet_id}/foods`)
+			.get(`/auth/${props.id}/pet/${props.pet_id}/foods`)
 			.then(res=>{props.getFood(res.data)})
 			.catch((err) => console.log('error', err));
-	}, []);
+	}, [props]);
 
 	return (
 		<div className="history-list">

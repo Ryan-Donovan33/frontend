@@ -1,24 +1,11 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Gigapet from '../components/dashboard/Gigapet';
 import HealthCard from '../components/dashboard/HealthCard';
 import Navbar from '../components/layout/Navbar';
 import {connect} from 'react-redux';
-import {apiCall} from '../utils/apiCall'; 
-import {getPetInfo} from '../actions'
+import {setPet, getPetInfo} from '../actions'
 
-const Dashboard = ({id, pet_id,...props}) => {
-	
-	useEffect(()=>{
-		apiCall().get(`/auth/${id}/pet/${pet_id}/`)
-		.then(res=>{
-			console.log(res);
-			props.getPetInfo(res.data)
-		})
-		.catch(err=>{
-			console.log(err)
-		})
-	}, [])
-	
+const Dashboard = (props) => {	
 	return (
 		<div className="dashboard">
 			<Navbar />
@@ -35,4 +22,4 @@ export default connect(state=>{
 		id: state.id,
 		pet_id: state.pet_id
 	}
-}, {getPetInfo})(Dashboard);
+}, {getPetInfo, setPet})(Dashboard);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputStyle, OnboardingButton, OnboardingButtonLine } from '../GeneralStyling';
+import { InputStyle, OnboardingButton} from '../GeneralStyling';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 

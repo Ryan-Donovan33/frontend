@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {Link} from 'react-router-dom';
 import {
   InputStyle,
@@ -36,9 +36,8 @@ const Login = ({addUser, ...props}) => {
           console.log(res)
           addUser(res.data.id)
           localStorage.setItem("token", res.data.token);
-          props.history.push('/')
-          // setLoading(false);
-          console.log('boop')
+          localStorage.setItem("user_id", res.data.id);
+          window.location.reload()
         })
         .catch(err=>{
           setLoading(false)

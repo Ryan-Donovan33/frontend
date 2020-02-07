@@ -40,7 +40,6 @@ box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);
 `;
 
 const Gigapet = (props) => {
-
   
   const GigaPetAvatar = styled.img`
     position: absolute;

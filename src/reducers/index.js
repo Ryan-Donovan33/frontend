@@ -1,6 +1,6 @@
 const initialState = {
-    id: 5,
-    pet_id: 1,
+    id: localStorage.getItem('user_id'),
+    pet_id: '',
     pet_name: "Loading...",
     health: 10,
     foodEaten: [{id: 1, name: 'Sample Entry', category_id: "1"}]
@@ -22,21 +22,27 @@ const petReducer = (state = initialState, action) => {
       console.log('Deleted');
       break;
     case "GET_FOOD":
+      console.log(state)
       return {
         ...state,
         foodEaten: action.payload
       }
     case "ADD_USER":
-      console.log(action.payload)
       return{
         ...state,
         id: action.payload
+      }
+    case "SET_PET_INFO":
+      return {
+        ...state,
+        pet_id: action.payload
       }
     case "GET_PET_INFO":
       return {
         ...state,
         pet_name: action.payload.pet_name,
-        health: action.payload.health
+        health: action.payload.health,
+        pet_id: action.payload.id
 
       }
     default:
