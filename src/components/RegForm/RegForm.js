@@ -5,7 +5,7 @@ import Axios from 'axios';
 import { OnboardingButton, InputStyle } from '../GeneralStyling';
 import { Link } from 'react-router-dom';
 
-const Register = ({ errors, touched, values, status }) => {
+const Register = ({ errors, touched, values, status, ...props }) => {
 	const [ user, setUser ] = useState([]);
 
 	useEffect(
@@ -44,10 +44,25 @@ const Register = ({ errors, touched, values, status }) => {
 					value={values.confirm}
 				/>
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
-				<Link to="/childinfo">
-					<OnboardingButton type="submit">Next</OnboardingButton>
-				</Link>
+
+				<OnboardingButton
+					onClick={() => {
+						props.history.push('/childinfo');
+					}}
+					type="submit"
+				>
+					Next
+				</OnboardingButton>
 			</Form>
+
+			{user.map((el) => (
+				<ul>
+					<li>name: {el.name}</li>
+					<li>email: {el.email}</li>
+					<li>password: {el.password}</li>
+					<li>confirm: {el.confirm}</li>
+				</ul>
+			))}
 		</div>
 	);
 };
@@ -70,6 +85,7 @@ export default withFormik({
 		password: Yup.string().required('Password Required!'),
 		confirm: Yup.string().required('Confirm Password!')
 	}),
+
 	handleSumbit(values, { setStatus, resetForm }) {
 		console.log('submitting form:', values);
 

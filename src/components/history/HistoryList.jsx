@@ -46,6 +46,7 @@ function HistoryList(props) {
 			.catch((err) => console.log('error', err));
 	}, []);
 
+	console.log(history, 'data');
 	return (
 		<div className="history-list">
 			<ListCard>
