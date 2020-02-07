@@ -4,19 +4,27 @@ import HealthCard from '../components/dashboard/HealthCard';
 import Navbar from '../components/layout/Navbar';
 import {connect} from 'react-redux';
 import {apiCall} from '../utils/apiCall'; 
-import {getPetInfo} from '../actions'
+import {setPet, getPetInfo} from '../actions'
 
-const Dashboard = ({id, pet_id,...props}) => {
+const Dashboard = (props) => {
 	
 	useEffect(()=>{
-		apiCall().get(`/auth/${id}/pet/${pet_id}/`)
+
+		const uid = localStorage.getItem('user_id');
+		apiCall().get(`auth/user/${uid}`)
 		.then(res=>{
-			console.log(res);
-			props.getPetInfo(res.data)
+			props.setPet(res.data.pet_id)
+			apiCall().get(`/auth/user/${props.id}/pet/${res.data.pet_id}/`)
+			.then(res=>{
+				props.getPetInfo(res.data)
+			})
+			.catch(err=>{
+				console.log(err)
+			})
+
+
 		})
-		.catch(err=>{
-			console.log(err)
-		})
+
 	}, [])
 	
 	return (
@@ -35,4 +43,4 @@ export default connect(state=>{
 		id: state.id,
 		pet_id: state.pet_id
 	}
-}, {getPetInfo})(Dashboard);
+}, {getPetInfo, setPet})(Dashboard);
