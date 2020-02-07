@@ -16,10 +16,15 @@ const petReducer = (state = initialState, action) => {
        foodEaten: [action.payload, ...state.foodEaten]
       }
     case "UPDATE_FOOD":
-      console.log('updated');
-      break;
-    case "DELETE_FOOD":
-      console.log('Deleted');
+      return {
+        ...state,
+        foodEaten: []
+      }
+      case "DELETE_FOOD":
+        return {
+          ...state,
+          foodEaten: []
+        }
       break;
     case "GET_FOOD":
       console.log(state)

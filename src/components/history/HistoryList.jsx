@@ -39,10 +39,10 @@ const ListCard = styled.div`
 function HistoryList(props) {
 	useEffect(() => {
 		apiCall()
-			.get(`/auth/${props.id}/pet/${props.pet_id}/foods`)
+			.get(`/auth/user/${props.id}/pet/${props.pet_id}/foods`)
 			.then(res=>{props.getFood(res.data)})
 			.catch((err) => console.log('error', err));
-	}, [props]);
+	}, []);
 
 	return (
 		<div className="history-list">
@@ -51,21 +51,21 @@ function HistoryList(props) {
 					{...props}
 					title="Breakfast"
 					meals={props.foodEaten.filter((meal) => {
-						return meal.category_id === '1';
+						return meal.category_id === 1;
 					})}
 				/>
 				<MealSection
 					{...props}
 					title="Lunch"
 					meals={props.foodEaten.filter((meal) => {
-						return meal.category_id === '2';
+						return meal.category_id === 2;
 					})}
 				/>
 				<MealSection
 					{...props}
 					title="Dinner"
 					meals={props.foodEaten.filter((meal) => {
-						return meal.category_id === '3';
+						return meal.category_id === 3;
 					})}
 				/>
 			</ListCard>

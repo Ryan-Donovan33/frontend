@@ -30,9 +30,10 @@ function UpdateEntry(props){
 
     const handleSubmit = e =>{
         e.preventDefault()
-        apiCall().put(`/auth/user/${props.id}/pet/${props.pet_id}/foods/${props.match.params.id}`, {food})
+        apiCall().put(`/auth/user/${props.id}/pet/${props.pet_id}/foods/${props.match.params.id}`, {name: food.name, category_id: food.category_id})
         .then(res=>{
             props.updateFood(res.data);
+            console.log(res.data)
             props.history.goBack();
         }).catch(err=>{
             console.log(err)
@@ -56,8 +57,8 @@ function UpdateEntry(props){
 
             <Card style={{height: 'calc(100vh - 200px)', paddingTop: '50px'}}>
                 <form onSubmit={handleSubmit}>
-                    <FormInput value={food.name} onChange={handleChange} placeholder="Food Title" name="title" />
-                    <FormSelect onChange={handleChange} name="category" defaultValue={food.category_id}>
+                    <FormInput defaultValue={food.name} onChange={handleChange} placeholder="Food Title" name="name" />
+                    <FormSelect onChange={handleChange} name="category_id" defaultValue={food.category_id}>
                         <FormSelectOption value="" disabled hidden>Category</FormSelectOption>
                         <FormSelectOption value="1" >Breakfast</FormSelectOption>
                         <FormSelectOption value="2" >Lunch</FormSelectOption>
