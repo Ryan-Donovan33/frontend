@@ -14,11 +14,12 @@ function UpdateEntry(props){
     useEffect(()=>{
         apiCall().get(`/auth/user/${props.id}/pet/${props.pet_id}/foods/${props.match.params.id}`)
         .then(res=>{
+            console.log(res)
             setFood(res.data);
         }).catch(err=>{
             console.log(err)
         })
-    }, [])
+    }, [props.id, props.match.params.id, props.pet_id])
 
     const handleChange = e =>{
         setFood({
@@ -55,8 +56,8 @@ function UpdateEntry(props){
 
             <Card>
                 <form onSubmit={handleSubmit}>
-                    <FormInput onChange={handleChange} placeholder="Food Title" name="title" />
-                    <FormSelect onChange={handleChange} name="category" defaultValue="Category">
+                    <FormInput value={food.name} onChange={handleChange} placeholder="Food Title" name="title" />
+                    <FormSelect onChange={handleChange} name="category" defaultValue={food.category_id}>
                         <FormSelectOption value="" disabled hidden>Category</FormSelectOption>
                         <FormSelectOption value="1" >Breakfast</FormSelectOption>
                         <FormSelectOption value="2" >Lunch</FormSelectOption>
@@ -74,7 +75,8 @@ function UpdateEntry(props){
 
 export default connect(state=>{
     return {
-
+        id: state.id,
+        pet_id: state.pet_id
     }
 
 },{updateFood})(UpdateEntry);

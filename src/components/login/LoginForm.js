@@ -37,7 +37,7 @@ const Login = ({addUser, ...props}) => {
           addUser(res.data.id)
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("user_id", res.data.id);
-          props.history.push('/')
+          window.location.reload()
         })
         .catch(err=>{
           setLoading(false)

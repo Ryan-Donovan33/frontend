@@ -23,6 +23,7 @@ function AddEntry(props) {
 
       apiCall().post(`/auth/user/${props.id}/pet/${props.pet_id}/foods`, {food}).then(res=>{
         props.addFood(res.data);
+        console.log(res)
         props.history.goBack()
       })
 

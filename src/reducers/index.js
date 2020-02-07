@@ -22,6 +22,7 @@ const petReducer = (state = initialState, action) => {
       console.log('Deleted');
       break;
     case "GET_FOOD":
+      console.log(state)
       return {
         ...state,
         foodEaten: action.payload
@@ -40,7 +41,8 @@ const petReducer = (state = initialState, action) => {
       return {
         ...state,
         pet_name: action.payload.pet_name,
-        health: action.payload.health
+        health: action.payload.health,
+        pet_id: action.payload.id
 
       }
     default:

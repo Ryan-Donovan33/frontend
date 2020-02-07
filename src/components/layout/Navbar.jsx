@@ -26,6 +26,7 @@ export default function Navbar(props){
             <img src="/assets/logo.svg" alt="logo" />
             <p onClick={()=>{
                 localStorage.removeItem('token');
+                localStorage.removeItem('user_id');
                 window.location.reload();
                 
             }}  style={{color: 'white', fontWeight: 'bold', padding: '15px 0', cursor: 'pointer'}} className="logout">Log out</p>
