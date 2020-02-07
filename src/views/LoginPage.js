@@ -3,12 +3,12 @@ import Header from '../components/login/Header';
 import LoginForm from '../components/login/LoginForm';
 
 
-export default function Login(){
+export default function Login(props){
     return (
         <div className="login-page">
             <div className="container">
             <Header />
-            <LoginForm/>
+            <LoginForm {...props}/>
 
             </div>
     

@@ -4,7 +4,7 @@ export const apiCall = () => {
   const token = localStorage.getItem("token");
 
   axios.create({
-    baseURL: "DeployedApiURL",
+    baseURL: "https://gigapetdb.herokuapp.com",
     headers: {
       Authorization: token
     }

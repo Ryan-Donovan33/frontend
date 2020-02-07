@@ -40,6 +40,8 @@ box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);
 `;
 
 const Gigapet = (props) => {
+
+  
   const GigaPetAvatar = styled.img`
     position: absolute;
     top: 50%;
@@ -61,7 +63,7 @@ const Gigapet = (props) => {
 
 export default connect(state => {
   return {
-    nickname: state.nickname,
+    nickname: state.pet_name,
     health: state.health
   };
 })(Gigapet);

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import {
   InputStyle,
@@ -9,6 +9,11 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
 const Login = (props) => {
+  useEffect(() => {
+    const Token = localStorage.getItem('token')
+    Token ? props.history.push('/') : console.log('Loading')
+    
+  }, [])
   const [ isLoading, setLoading ] = useState(false)
   return (
   <div>
