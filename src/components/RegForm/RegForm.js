@@ -45,9 +45,7 @@ const Register = ({ errors, touched, values, status }) => {
 				/>
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
 				<Link to="/childinfo">
-					<OnboardingButton onsubmit="handleSubmit()" type="submit">
-						Next
-					</OnboardingButton>
+					<OnboardingButton type="submit">Next</OnboardingButton>
 				</Link>
 			</Form>
 
@@ -81,6 +79,7 @@ export default withFormik({
 		password: Yup.string().required('Password Required!'),
 		confirm: Yup.string().required('Confirm Password!')
 	}),
+
 	handleSumbit(values, { setStatus, resetForm }) {
 		console.log('submitting form:', values);
 
