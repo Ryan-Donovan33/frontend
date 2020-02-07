@@ -6,23 +6,29 @@ import {getPetInfo} from './actions/'
 import {apiCall} from './utils/apiCall';
 
 function App(props) {
+	
 	useEffect(()=>{
-
+		const token = localStorage.getItem('token');
 		const uid = localStorage.getItem('user_id');
-		apiCall().get(`auth/user/${uid}`)
-		.then(res=>{
-			apiCall().get(`/auth/user/${props.id}/pet/${res.data.pet_id}/`)
+		if (token && uid){
+			apiCall().get(`auth/user/${uid}`)
 			.then(res=>{
-				props.getPetInfo(res.data)
+				apiCall().get(`/auth/user/${props.id}/pet/${res.data.pet_id}/`)
+				.then(res=>{
+					props.getPetInfo(res.data)
+				})
+				.catch(err=>{
+					console.log(err)
+				})
+	
+	
 			})
-			.catch(err=>{
-				console.log(err)
-			})
+
+		}
+
+	}, [props]) 
 
 
-		})
-
-	}, [props])
 	return (
 		<div className="App">
 			<RouterView />
