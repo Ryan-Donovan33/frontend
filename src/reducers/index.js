@@ -3,7 +3,7 @@ const initialState = {
     pet_id: 1,
     pet_name: "Loading...",
     health: 10,
-    foodEaten: [{id: 1, name: 'Sample Entry', category_id: 3}]
+    foodEaten: [{id: 1, name: 'Sample Entry', category_id: "1"}]
 
 };
 
