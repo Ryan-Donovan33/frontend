@@ -54,7 +54,7 @@ function UpdateEntry(props){
             <div className="container">
             <TitleBar {...props} title="Update Entry" />
 
-            <Card>
+            <Card style={{height: 'calc(100vh - 200px)', paddingTop: '50px'}}>
                 <form onSubmit={handleSubmit}>
                     <FormInput value={food.name} onChange={handleChange} placeholder="Food Title" name="title" />
                     <FormSelect onChange={handleChange} name="category" defaultValue={food.category_id}>
