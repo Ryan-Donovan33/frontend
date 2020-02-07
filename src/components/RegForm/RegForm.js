@@ -5,7 +5,7 @@ import Axios from 'axios';
 import { OnboardingButton, InputStyle } from '../GeneralStyling';
 import { Link } from 'react-router-dom';
 
-const Register = ({ errors, touched, values, status }) => {
+const Register = ({ errors, touched, values, status }, props) => {
 	const [ user, setUser ] = useState([]);
 
 	useEffect(
@@ -44,9 +44,15 @@ const Register = ({ errors, touched, values, status }) => {
 					value={values.confirm}
 				/>
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
-				<Link to="/childinfo">
-					<OnboardingButton type="submit">Next</OnboardingButton>
-				</Link>
+
+				<OnboardingButton
+					onClick={() => {
+						props.history.push('/childinfo');
+					}}
+					type="submit"
+				>
+					Next
+				</OnboardingButton>
 			</Form>
 
 			{user.map((el) => (

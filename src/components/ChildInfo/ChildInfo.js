@@ -73,6 +73,7 @@ const ChildCard = ({ errors, touched, values, status }) => {
 		</div>
 	);
 };
+
 //using higher order component
 
 const ChildInfo = withFormik({
@@ -104,7 +105,7 @@ const ChildInfo = withFormik({
 				resetForm();
 			})
 			.catch((err) => {
-				console.log('Error:', err.response);
+				console.log('Error:', err);
 			});
 	}
 })(ChildCard);

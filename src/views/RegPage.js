@@ -1,11 +1,11 @@
 import React from 'react';
 import RegForm from '../components/RegForm/RegForm';
 
-function RegPage() {
+function RegPage(props) {
 	return (
 		<div className="RegPage">
 			<div className="container">
-				<RegForm />
+				<RegForm {...props} />
 			</div>
 		</div>
 	);
