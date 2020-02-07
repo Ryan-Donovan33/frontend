@@ -63,6 +63,13 @@ const ChildCard = ({ errors, touched, values, status }) => {
 					<OnboardingButton>Wrap Up!</OnboardingButton>
 				</Link>
 			</Form>
+
+			{child.map((el) => (
+				<ul>
+					<li>name: {el.name}</li>
+					<li>date: {el.date}</li>
+				</ul>
+			))}
 		</div>
 	);
 };

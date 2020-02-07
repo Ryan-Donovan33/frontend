@@ -45,9 +45,20 @@ const Register = ({ errors, touched, values, status }) => {
 				/>
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
 				<Link to="/childinfo">
-					<OnboardingButton type="submit">Next</OnboardingButton>
+					<OnboardingButton onsubmit="handleSubmit()" type="submit">
+						Next
+					</OnboardingButton>
 				</Link>
 			</Form>
+
+			{user.map((el) => (
+				<ul>
+					<li>name: {el.name}</li>
+					<li>email: {el.email}</li>
+					<li>password: {el.password}</li>
+					<li>confirm: {el.confirm}</li>
+				</ul>
+			))}
 		</div>
 	);
 };
