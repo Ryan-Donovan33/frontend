@@ -41,7 +41,7 @@ function HistoryList(props) {
 	const [ history, setHistory ] = useState([]);
 	useEffect(() => {
 		axios
-			.get('https://gigapetdb.herokuapp.com/auth/:id/pet/:pet_id/:food')
+			.get('https://gigapetdb.herokuapp.com/auth/:id/pet/:pet_id/foods')
 			.then((res) => setHistory(res.data))
 			.catch((err) => console.log('error', err));
 	}, []);
