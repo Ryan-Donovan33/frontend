@@ -9,12 +9,20 @@ const initialState = {
 const petReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_FOOD":
-      console.log(state)
       return {
        ...state,
        health: state.health + 30,
        foodEaten: [action.payload, ...state.foodEaten]
       }
+    case "UPDATE_FOOD":
+      console.log('updated');
+      break;
+    case "DELETE_FOOD":
+      console.log('Deleted');
+      break;
+    case "GET_FOOD_BY_DATE":
+      console.log(`content from ${Date}`)
+      break;
     default:
       return state;
   }

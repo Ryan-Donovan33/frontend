@@ -8,7 +8,7 @@ import {
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
-const Login = () => {
+const Login = (props) => {
   const [ isLoading, setLoading ] = useState(false)
   return (
   <div>
@@ -32,7 +32,8 @@ const Login = () => {
         .then(res => {
           console.log(res)
           localStorage.setItem("token", res.data.token);
-          setLoading(false)
+          setLoading(false);
+          props.history.push('/')
         })
         .catch(err=>{
           setLoading(false)
