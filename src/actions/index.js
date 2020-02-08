@@ -16,9 +16,29 @@ export const deleteFood = (data) =>{
         payload: data
     }
 }
-export const getByFood = (data) =>{
+export const getFood = (data) =>{
     return {
-        type: "GET_FOOD_BY_DATE",
+        type: "GET_FOOD",
+        payload: data
+    }
+}
+export const addUser = (data) =>{
+    return {
+        type: "ADD_USER",
+        payload: data
+    }
+}
+
+export const setPet = (data) =>{
+    return {
+        type: "SET_PET_INFO",
+        payload: data
+    }
+}
+
+export const getPetInfo = (data) =>{
+    return {
+        type: "GET_PET_INFO",
         payload: data
     }
 }

@@ -3,7 +3,6 @@ import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 import Axios from 'axios';
 import { OnboardingButton, InputStyle } from '../GeneralStyling';
-import { Link } from 'react-router-dom';
 
 const Register = ({ errors, touched, values, status, ...props }) => {
 	const [ user, setUser ] = useState([]);
@@ -91,6 +90,7 @@ export default withFormik({
 
 		Axios.post('https://gigapetdb.herokuapp.com/auth/register', values)
 			.then((res) => {
+				
 				console.log(res, 'successful');
 				setStatus(res.data);
 				resetForm();

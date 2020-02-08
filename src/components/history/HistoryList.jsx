@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import axios from 'axios';
-
 import MealSection from './MealSection';
-import { thisExpression } from '@babel/types';
+import {apiCall} from '../../utils/apiCall'
+import {getFood} from '../../actions'
 
 const ListCard = styled.div`
 	background: white;
@@ -38,15 +37,13 @@ const ListCard = styled.div`
 // https://gigapetdb.herokuapp.com/auth/:id/pet/:pet_id/:food_id
 
 function HistoryList(props) {
-	const [ history, setHistory ] = useState([]);
 	useEffect(() => {
-		axios
-			.get('https://gigapetdb.herokuapp.com/auth/:id/pet/:pet_id/foods')
-			.then((res) => setHistory(res.data))
+		apiCall()
+			.get(`/auth/${props.id}/pet/${props.pet_id}/foods`)
+			.then(res=>{props.getFood(res.data)})
 			.catch((err) => console.log('error', err));
-	}, []);
+	}, [props]);
 
-	console.log(history, 'data');
 	return (
 		<div className="history-list">
 			<ListCard>
@@ -54,21 +51,21 @@ function HistoryList(props) {
 					{...props}
 					title="Breakfast"
 					meals={props.foodEaten.filter((meal) => {
-						return meal.category === '1';
+						return meal.category_id === '1';
 					})}
 				/>
 				<MealSection
 					{...props}
 					title="Lunch"
 					meals={props.foodEaten.filter((meal) => {
-						return meal.category === '2';
+						return meal.category_id === '2';
 					})}
 				/>
 				<MealSection
 					{...props}
 					title="Dinner"
 					meals={props.foodEaten.filter((meal) => {
-						return meal.category === '3';
+						return meal.category_id === '3';
 					})}
 				/>
 			</ListCard>
@@ -78,6 +75,9 @@ function HistoryList(props) {
 
 export default connect((state) => {
 	return {
-		foodEaten: state.foodEaten
+		foodEaten: state.foodEaten,
+		pet_id: state.pet_id,
+		id: state.id,
+
 	};
-})(HistoryList);
+}, {getFood})(HistoryList);

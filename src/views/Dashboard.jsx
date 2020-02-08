@@ -2,13 +2,10 @@ import React from "react";
 import Gigapet from '../components/dashboard/Gigapet';
 import HealthCard from '../components/dashboard/HealthCard';
 import Navbar from '../components/layout/Navbar';
-import axios from 'axios';
+import {connect} from 'react-redux';
+import {setPet, getPetInfo} from '../actions'
 
-const Dashboard = (props) => {
-	axios
-			.get('https://gigapetdb.herokuapp.com/auth/:id/pet/:pet_id/')
-			.then((res) => (res.data))
-			.catch((err) => console.log('error', err));
+const Dashboard = (props) => {	
 	return (
 		<div className="dashboard">
 			<Navbar />
@@ -20,4 +17,9 @@ const Dashboard = (props) => {
 	);
 };
 
-export default Dashboard;
+export default connect(state=>{
+	return {
+		id: state.id,
+		pet_id: state.pet_id
+	}
+}, {getPetInfo, setPet})(Dashboard);

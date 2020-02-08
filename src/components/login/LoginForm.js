@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {Link} from 'react-router-dom';
 import {
   InputStyle,
@@ -7,13 +7,11 @@ import {
 } from "../GeneralStyling";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
+import {connect} from 'react-redux';
+import {addUser} from '../../actions/'
 
-const Login = (props) => {
-  useEffect(() => {
-    const Token = localStorage.getItem('token')
-    Token ? props.history.push('/') : console.log('Loading')
-    
-  }, [])
+const Login = ({addUser, ...props}) => {
+ 
   const [ isLoading, setLoading ] = useState(false)
   return (
   <div>
@@ -36,9 +34,10 @@ const Login = (props) => {
         axios.post("https://gigapetdb.herokuapp.com/auth/login", values)
         .then(res => {
           console.log(res)
+          addUser(res.data.id)
           localStorage.setItem("token", res.data.token);
-          setLoading(false);
-          props.history.push('/')
+          localStorage.setItem("user_id", res.data.id);
+          window.location.reload()
         })
         .catch(err=>{
           setLoading(false)
@@ -88,4 +87,10 @@ const Login = (props) => {
   </div>
 )};
 
-export default Login;
+export default connect(state=>{
+  return {
+
+  }
+}, {
+  addUser
+})(Login);

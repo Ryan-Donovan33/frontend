@@ -1,9 +1,9 @@
 const initialState = {
-    id: Date.now(),
-    pet_id: 1,
-    pet_name: "MrHatBirb",
+    id: localStorage.getItem('user_id'),
+    pet_id: '',
+    pet_name: "Loading...",
     health: 10,
-    foodEaten: [{id: 1, title: 'Food', category: 1}]
+    foodEaten: [{id: 1, name: 'Sample Entry', category_id: "1"}]
 
 };
 
@@ -21,9 +21,30 @@ const petReducer = (state = initialState, action) => {
     case "DELETE_FOOD":
       console.log('Deleted');
       break;
-    case "GET_FOOD_BY_DATE":
-      console.log(`content from ${Date}`)
-      break;
+    case "GET_FOOD":
+      console.log(state)
+      return {
+        ...state,
+        foodEaten: action.payload
+      }
+    case "ADD_USER":
+      return{
+        ...state,
+        id: action.payload
+      }
+    case "SET_PET_INFO":
+      return {
+        ...state,
+        pet_id: action.payload
+      }
+    case "GET_PET_INFO":
+      return {
+        ...state,
+        pet_name: action.payload.pet_name,
+        health: action.payload.health,
+        pet_id: action.payload.id
+
+      }
     default:
       return state;
   }
