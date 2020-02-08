@@ -4,17 +4,16 @@ import * as Yup from 'yup';
 import Axios from 'axios';
 import { OnboardingButton, InputStyle } from '../GeneralStyling';
 
-const Register = ({ errors, touched, values, status, ...props }) => {
+const Register = ({ errors, touched, values, status, handleSubmit, ...props }) => {
 	const [ user, setUser ] = useState([]);
-
 	useEffect(
 		() => {
 			status && setUser((person) => [ ...person, status ]);
 		},
 		[ status ]
-	);
-	return (
-		<div className="onboarding-1">
+		);
+		return (
+			<div className="onboarding-1">
 			<div style={{ color: 'white' }}>
 				<h3>Let's get started!</h3>
 				<h4 style={{ fontWeight: 'normal' }}>First, let's get your information</h4>
@@ -32,7 +31,7 @@ const Register = ({ errors, touched, values, status, ...props }) => {
 					name="password"
 					placeholder="Password"
 					value={values.password}
-				/>
+					/>
 				{touched.password && errors.password && <p>{errors.password}</p>}
 
 				<Field
@@ -41,39 +40,23 @@ const Register = ({ errors, touched, values, status, ...props }) => {
 					name="confirm"
 					placeholder="Confirm Password"
 					value={values.confirm}
-				/>
+					/>
 				{touched.confirm && errors.confirm && <p>{errors.confirm}</p>}
 
-				<OnboardingButton
-					onClick={() => {
-						props.history.push('/childinfo');
-					}}
-					type="submit"
-				>
-					Next
-				</OnboardingButton>
+				<OnboardingButton type="submit">Next</OnboardingButton>
 			</Form>
-
-			{user.map((el) => (
-				<ul>
-					<li>name: {el.name}</li>
-					<li>email: {el.email}</li>
-					<li>password: {el.password}</li>
-					<li>confirm: {el.confirm}</li>
-				</ul>
-			))}
 		</div>
 	);
 };
 
 export default withFormik({
-	mapPropsToValues({ users }) {
+	mapPropsToValues() {
 		//passing props to each field
 		return {
-			name: users || '',
+			name:  '',
 			email: '',
 			password: '',
-			confirm: ''
+			confirm: '',
 		};
 	},
 
@@ -85,15 +68,19 @@ export default withFormik({
 		confirm: Yup.string().required('Confirm Password!')
 	}),
 
-	handleSumbit(values, { setStatus, resetForm }) {
-		console.log('submitting form:', values);
+	handleSubmit(values, { setStatus, resetForm, props}) {
 
-		Axios.post('https://gigapetdb.herokuapp.com/auth/register', values)
+		Axios.post('https://gigapetdb.herokuapp.com/auth/register', {username: values.email, password: values.password})
 			.then((res) => {
-				
-				console.log(res, 'successful');
+				Axios.post('https://gigapetdb.herokuapp.com/auth/login', {username: values.email, password: values.password})
+				.then(res=>{
+					localStorage.setItem('token', res.data.token);
+					localStorage.setItem('user_id', res.data.id);
+					props.history.push('/finalRegStep')
+				})
 				setStatus(res.data);
 				resetForm();
+				
 			})
 			.catch((err) => {
 				console.log('Error', err);
