@@ -13,6 +13,7 @@ function App(props) {
 		if (token && uid){
 			apiCall().get(`auth/user/${uid}`)
 			.then(res=>{
+				localStorage.setItem('pet_id', res.data.pet_id)
 				apiCall().get(`/auth/user/${props.id}/pet/${res.data.pet_id}/`)
 				.then(res=>{
 					props.getPetInfo(res.data)
