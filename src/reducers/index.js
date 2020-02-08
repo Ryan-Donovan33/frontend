@@ -1,9 +1,9 @@
 const initialState = {
     id: localStorage.getItem('user_id'),
-    pet_id: '',
+    pet_id: localStorage.getItem('pet_id'),
     pet_name: "Loading...",
     health: 10,
-    foodEaten: [{id: 1, name: 'Sample Entry', category_id: "1"}]
+    foodEaten: []
 
 };
 
@@ -16,13 +16,16 @@ const petReducer = (state = initialState, action) => {
        foodEaten: [action.payload, ...state.foodEaten]
       }
     case "UPDATE_FOOD":
-      console.log('updated');
-      break;
-    case "DELETE_FOOD":
-      console.log('Deleted');
-      break;
+      return {
+        ...state,
+        foodEaten: []
+      }
+      case "DELETE_FOOD":
+        return {
+          ...state,
+          foodEaten: []
+        }
     case "GET_FOOD":
-      console.log(state)
       return {
         ...state,
         foodEaten: action.payload

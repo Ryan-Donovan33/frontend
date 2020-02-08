@@ -28,7 +28,7 @@ export default function MealSection({ title, meals, ...props }) {
     <div className="meal-section">
       <SectionTitle>{title}</SectionTitle>
       {meals.length ? meals.map(meal => {
-        return <MealTitle onClick={()=>{props.history.push(`update/${meal.id}`)}} key={meal.id}>{meal.name}</MealTitle>;
+        return <MealTitle onClick={()=>{props.history.push(`update/${meal.food_eaten_id}`)}} key={meal.food_eaten_id}>{meal.name}</MealTitle>;
       }) : <MealTitle>No {title} yet!</MealTitle> }
       <AddButton
         onClick={e => {
