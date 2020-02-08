@@ -11,6 +11,7 @@ const Nickname = (props) => (
 		</div>
 		<Formik
 			className="container"
+			initialValues={{ nickname: '' }}
 			onSubmit={(values) => {
 				axios
 					.post('https://gigapetdb.herokuapp.com/auth/register', values)
