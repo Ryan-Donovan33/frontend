@@ -10,9 +10,12 @@ function App(props) {
 	useEffect(()=>{
 		const token = localStorage.getItem('token');
 		const uid = localStorage.getItem('user_id');
+		const pet_id = localStorage.getItem('pet_id');
 		if (token && uid){
 			apiCall().get(`auth/user/${uid}`)
 			.then(res=>{
+
+
 				localStorage.setItem('pet_id', res.data.pet_id)
 				apiCall().get(`/auth/user/${props.id}/pet/${res.data.pet_id}/`)
 				.then(res=>{
