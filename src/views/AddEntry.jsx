@@ -15,15 +15,16 @@ function AddEntry(props) {
       ...food,
       [e.target.name]: e.target.value,
     })
+    console.log(food)
   }
 
   const handleSubmit = e =>{
     e.preventDefault();
     if (food.name && food.category_id){
 
-      apiCall().post(`/auth/user/${props.id}/pet/${props.pet_id}/foods`, {food}).then(res=>{
+      apiCall().post(`/auth/user/${props.id}/pet/${props.pet_id}/foods/`, {name: food.name, category_id: food.category_id}).then(res=>{
         props.addFood(res.data);
-        console.log(res)
+        console.log(food, res.data)
         props.history.goBack()
       })
 
