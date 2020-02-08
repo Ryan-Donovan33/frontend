@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import RouteGuard from './routerGuard';
 import PublicRoute from './publicRoute';
 
@@ -24,7 +24,7 @@ export default function RouterView() {
 			<PublicRoute path="/login" component={LoginPage} />
 			<PublicRoute path="/onboarding-1" component={RegPage} />
 			<RouteGuard path="/childinfo" component={ChildPage} />
-			<RouteGuard path="/finalRegStep" component={RegLastPg} />
+			<Route path="/finalRegStep" component={RegLastPg} />
 		</div>
 	);
 }

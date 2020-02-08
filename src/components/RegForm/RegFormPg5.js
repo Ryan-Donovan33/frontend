@@ -11,11 +11,14 @@ const Nickname = (props) => (
 		</div>
 		<Formik
 			className="container"
+			initialValues={{ nickname: ""}}
+
 			onSubmit={(values) => {
 				axios
-					.post('https://gigapetdb.herokuapp.com/auth/register', values)
+					.post(`https://gigapetdb.herokuapp.com/auth/user/${localStorage.getItem('user_id')}/pet`, {pet_name: values.nickname})
 					.then((res) => {
-						localStorage.setItem('token', res.data.token);
+						localStorage.setItem('pet_id', res.data.token);
+						props.history.push('/')
 					})
 					.catch((err) => {
 						console.log(err);
@@ -26,14 +29,7 @@ const Nickname = (props) => (
 				<Form>
 					<Field placeholder="Nickname" style={InputStyle} type="text" name="nickname" />
 
-					<OnboardingButton
-						onClick={() => {
-							props.history.push('/');
-						}}
-						type="submit"
-					>
-						Got to Dashboard
-					</OnboardingButton>
+					<OnboardingButton type="submit">Got to Dashboard</OnboardingButton>
 				</Form>
 			)}
 		</Formik>
