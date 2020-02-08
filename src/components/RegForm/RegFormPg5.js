@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputStyle, OnboardingButton} from '../GeneralStyling';
+import { InputStyle, OnboardingButton } from '../GeneralStyling';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 
@@ -11,18 +11,15 @@ const Nickname = (props) => (
 		</div>
 		<Formik
 			className="container"
-<<<<<<< HEAD
 			initialValues={{ nickname: '' }}
-=======
-			initialValues={{ nickname: ""}}
-
->>>>>>> 94a812c479809e4f7bbff66693a1d4ab36f9d328
 			onSubmit={(values) => {
 				axios
-					.post(`https://gigapetdb.herokuapp.com/auth/user/${localStorage.getItem('user_id')}/pet`, {pet_name: values.nickname})
+					.post(`https://gigapetdb.herokuapp.com/auth/user/${localStorage.getItem('user_id')}/pet`, {
+						pet_name: values.nickname
+					})
 					.then((res) => {
 						localStorage.setItem('pet_id', res.data.token);
-						props.history.push('/')
+						props.history.push('/');
 					})
 					.catch((err) => {
 						console.log(err);
